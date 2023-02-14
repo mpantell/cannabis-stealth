@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="./adhub.component.css">
+  </head>
+
+
+<div class="grid-container">
+
+    <div class="menu">
+        <app-nav-menu></app-nav-menu>
+    </div>
+
+    <div class="main">
+        <div *ngIf="lv===true; else elseBlock">
+            <app-list-view [headers]="headers" [data]="tableData"></app-list-view>
+        </div>
+        <ng-template #elseBlock>
+            <app-content-page></app-content-page>
+        </ng-template>
+    </div>
+
+    <div class="right">
+        <p>this is the right side</p>
+    </div>
+
+    <div class="footer">
+        <p>this is the footer</p>
+    </div>
+
+</div>
+  
+
+

@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  form {
+    width: 50%;
+  }
+  
+  label, input {
+    margin-top: 20px;
+  }
+  

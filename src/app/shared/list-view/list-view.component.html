@@ -1,0 +1,13 @@
+<table>
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data; index as x" [class]="x % 2 === 0 ? 'even-row' : 'odd-row' ">
+        <td *ngFor="let cell of row; index as i" [class]="i === 0 ? 'link' : '' ">{{ cell }}</td>
+      </tr>
+    </tbody>
+</table>
+  

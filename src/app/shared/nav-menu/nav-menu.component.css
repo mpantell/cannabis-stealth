@@ -1,0 +1,33 @@
+
+
+  .container {
+    margin-right: 10px;
+  }
+
+  .menutable{
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: x-large;
+    border: 1px;
+    border-color: #578a36;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  table {
+    text-align: center;
+    width: 100%;
+    
+  }
+
+  table, th, td {
+    border: 1px solid #578a36;
+    border-radius: 10px;
+  }
+
+  table tr:hover{
+    background-color: #578a36;
+  }
+

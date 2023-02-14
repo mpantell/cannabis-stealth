@@ -1,0 +1,27 @@
+.even-row {
+    background-color: #f2f2f2;
+  }
+  
+  .odd-row {
+    background-color: #fff;
+  }
+
+  table {
+    margin-top: 20px;
+    min-height: 80px;
+    padding: 10px;
+    width: 80%;
+    
+  }
+
+  td, th {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .link {
+    text-decoration: underline;
+    color: blue;
+    text-align: left !important;
+    padding-left: 50px;
+  }
