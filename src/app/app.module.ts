@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/login/login.component';
 import { HomeComponent } from './features/home/home.component';
+import { ListViewComponent } from './shared/list-view/list-view.component';
 
 import { FeaturesModule } from './features/features.module';
 import { SharedModule } from './shared/shared.module';

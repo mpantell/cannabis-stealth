@@ -6,11 +6,12 @@ import { HomeComponent } from './home/home.component';
 import { AdhubComponent } from './adhub/adhub.component';
 import { ListViewComponent } from '../shared/list-view/list-view.component';
 import { ContentPageComponent } from '../shared/content-page/content-page.component';
+import { ContenthubComponent } from './contenthub/contenthub.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, AdhubComponent],
+  declarations: [HomeComponent, AdhubComponent, ContenthubComponent],
   imports: [
     CommonModule,
     SharedModule,
