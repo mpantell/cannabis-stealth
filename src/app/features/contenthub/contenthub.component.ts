@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-adhub',
-  templateUrl: './adhub.component.html',
-  styleUrls: ['./adhub.component.css']
+  selector: 'app-contenthub',
+  templateUrl: './contenthub.component.html',
+  styleUrls: ['./contenthub.component.css']
 })
-export class AdhubComponent {
+
+
+
+export class ContenthubComponent {
   tableData = [
     ["Sensii Vape Product Launch", "Press Release", "Matthew Pantell", "2023-02-13", "Draft"],
     ["How to Care for Your Vape", "Web Content", "Matthew Pantell", "2023-02-07", "Pending Review"],
