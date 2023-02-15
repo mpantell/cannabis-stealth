@@ -1,20 +1,23 @@
+<head>
+    <link href="https://fonts.cdnfonts.com/css/denk-one" rel="stylesheet">
+</head>
 <!-- Menu -->
 <div class="container">
-    <table class="menutable">
-    <tr>
-        <td>Home</td>
-    </tr>
-    <tr>
-        <td>Content Hub</td>
-    </tr>
-    <tr>
-        <td>Campaign Hub</td>
-    </tr>
-    <tr>
-        <td>Social Hub</td>
-    </tr>  
-    <tr>
-        <td>Packaging Hub</td>
-    </tr>
-    </table>
+    <ul class="menulist">
+        <li>
+            <a [routerLink]="['/home']">Home</a>
+        </li>
+        <li>
+            <a [routerLink]="['/contentHub']">Content Hub</a>
+        </li>
+        <li>
+            <a [routerLink]="['/adhub']">Campaign Hub</a>
+        </li>
+        <li>
+            Social Hub
+        </li>
+        <li>
+            Packaging Hub
+        </li>
+    </ul>
 </div>

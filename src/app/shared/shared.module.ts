@@ -4,7 +4,10 @@ import { ListViewComponent } from './list-view/list-view.component';
 import { CommonModule } from '@angular/common';
 import { ContentPageComponent } from './content-page/content-page.component';
 import { QuillModule } from 'ngx-quill';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ContentFormComponent } from './content-form/content-form.component';
+
 
 
 
@@ -15,15 +18,20 @@ import { FormsModule } from '@angular/forms';
     ListViewComponent,
     FormsModule,
     ContentPageComponent,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ContentFormComponent
   ],
   exports: [
     NavMenuComponent,
     ListViewComponent,
-    ContentPageComponent
+    ContentPageComponent,
+    ContentFormComponent
   ],
   declarations: [
-  
+    
   ]
 })
 export class SharedModule { }

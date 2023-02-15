@@ -1,0 +1,8 @@
+<form [formGroup]="contentDetails" (ngSubmit)="onSubmit()">
+    <label *ngIf="editMode" for="title">Title</label> 
+    <input id="title" type="text" formControlName="title" required placeholder="Enter a title for your content asset" value={{title}} [disabled]="!editMode"><br>
+
+    <label for="content-type">Content Type</label>
+    <input id="title" type="date" formControlName="title" required>
+
+</form>

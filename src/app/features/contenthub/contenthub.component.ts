@@ -24,4 +24,8 @@ export class ContenthubComponent {
   ];
 
   lv = true;
+
+  handleCreate(){
+    this.lv = false;
+  }
 }
