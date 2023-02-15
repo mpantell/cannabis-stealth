@@ -7,6 +7,7 @@ import { AdhubComponent } from './adhub/adhub.component';
 import { ListViewComponent } from '../shared/list-view/list-view.component';
 import { ContentPageComponent } from '../shared/content-page/content-page.component';
 import { ContenthubComponent } from './contenthub/contenthub.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,9 @@ import { ContenthubComponent } from './contenthub/contenthub.component';
     CommonModule,
     SharedModule,
     NavMenuComponent,
-    ListViewComponent
+    ListViewComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [HomeComponent]
 })

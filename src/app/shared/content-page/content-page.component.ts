@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import Quill from 'quill';
+import { ContentFormComponent } from '../content-form/content-form.component';
 
 @Component({
   standalone: true,
@@ -12,7 +13,8 @@ import Quill from 'quill';
   imports: [
     CommonModule,
     FormsModule,
-    QuillModule
+    QuillModule,
+    ContentFormComponent
   ]
 })
 export class ContentPageComponent {

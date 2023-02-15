@@ -1,5 +1,6 @@
 
 .grid-container {
+    margin-top: 50px;
     display: grid;
     padding: 10px;
     gap: 1px;
@@ -9,9 +10,8 @@
         'menu main main main main main main main main main main right'
         'menu footer footer footer footer footer footer footer footer footer footer footer';
     margin-left: -20px;
-    margin-right: -35px;
+    margin-right: -20px;
     min-height: 700px;
-    margin-top: -10px;
 }
 
 p {
@@ -39,9 +39,4 @@ h1 {
 .footer { 
     grid-area: footer;
     background-color: #c8d9adff;
-}
-
-#create{
-    float: right;
-    margin-right: 79px;
 }

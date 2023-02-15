@@ -12,6 +12,7 @@
     <div class="main">
         <div *ngIf="lv===true; else elseBlock">
             <app-list-view [headers]="headers" [data]="tableData"></app-list-view>
+            <button id="create" (click)="handleCreate()">Create New</button>
         </div>
         <ng-template #elseBlock>
             <app-content-page></app-content-page>
