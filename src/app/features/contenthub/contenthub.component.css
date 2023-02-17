@@ -9,7 +9,7 @@
         'menu main main main main main main main main main main right'
         'menu footer footer footer footer footer footer footer footer footer footer footer';
     margin-left: -20px;
-    margin-right: -35px;
+    margin-right: -2.16vw;
     min-height: 700px;
     margin-top: -10px;
 }
@@ -27,14 +27,19 @@ h1 {
 .menu { 
     grid-area: menu;
     background-color: #c8d9adff;
+    min-width: 20vw;
+    max-width: 20vw;
 }
 .main { 
     grid-area: main;
-    
+    min-width: 62vw;
 }
 .right { 
     grid-area: right;
     background-color: #c8d9adff;
+    padding: .5vw;
+    min-width: 20vw;
+    max-width: 20vw;
 }
 .footer { 
     grid-area: footer;
@@ -45,3 +50,104 @@ h1 {
     float: right;
     margin-right: 79px;
 }
+
+ul {
+    padding: .2vw;
+}
+
+.activity {
+    list-style-type: none;
+    margin: .5vw;
+    font-size: 1rem;
+    padding-left: 1.28571429em;
+    text-indent: -1.6em;
+}
+
+.activity li {
+    padding-top: .4vw;
+}
+
+.activity li::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    align-self: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' className='w-6 h-6'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.stateList {
+    list-style-type: none;
+    
+}
+
+.stateList li{
+    padding-top:.5vw;
+    font-size: 1.2rem;
+}
+
+.stateList li::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.stateList li.compliant::before{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z' /%3E%3C/svg%3E");
+}
+
+.stateList li.violation::before{
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /%3E%3C/svg%3E');
+}
+
+.stateList li.violation{
+    color: red;
+}
+
+#aiMessage {
+    font-size: medium;
+    margin:0px;
+    padding:0px;
+    padding-left: .5vw;
+}
+
+modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 4vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background-color: #EEEEEE;
+    padding: 20px;
+    border-radius: 5px;
+    text-decoration: none !important;
+  }
+
+  .violationTitle{
+    font-size: small;
+  }
+
+  .violationDetail li{
+    font-size: small;
+    text-decoration: none !important;
+    padding-left: 1.28571429em;
+    text-indent: -1.6em;
+  }
+
+  li.violation span{
+    text-decoration: underline;
+  }

@@ -1,4 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface stateResult{
+  state: string;
+  status: string;
+  violations: Violation[];
+
+}
+
+interface Violation {
+  code: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-contenthub',
@@ -9,6 +21,12 @@ import { Component } from '@angular/core';
 
 
 export class ContenthubComponent {
+  @Input() validation = '';
+  @Input() states: string[] = ["IL", "CA", "NV", "MI", "PA"];
+  @Input() stateResults: stateResult[] = [];
+  @Input() contentEditorActive: boolean = false;
+  hoveredIndex:any = null;
+
   tableData = [
     ["Sensii Vape Product Launch", "Press Release", "Matthew Pantell", "2023-02-13", "Draft"],
     ["How to Care for Your Vape", "Web Content", "Matthew Pantell", "2023-02-07", "Pending Review"],
@@ -27,5 +45,29 @@ export class ContenthubComponent {
 
   handleCreate(){
     this.lv = false;
+  }
+
+  /*getStateStatus(state:string){
+    const result = this.stateResults.find(record => record.state === state);
+    if(result?.status=='Violation'){
+      return 'violation';
+    }else{
+      return 'compliant'
+    }
+  }*/
+
+  setStateResults(event: {state: string; status: string; violations: { code: string; description: string; }[]}[]){
+    this.stateResults = event;
+    this.contentEditorActive = true;
+  }
+
+  onHover(stateResult:{state: string; status: string; violations: { code: string; description: string; }[]}[]){
+
+  }
+
+  setHoverIndex(i:any, stateResult:any){
+
+    this.hoveredIndex = i && stateResult.status==='Violation' ? i : null;
+    console.log('HOVER INDEX: ' + i);
   }
 }

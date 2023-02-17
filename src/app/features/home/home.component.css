@@ -1,6 +1,13 @@
 
+
+
+.container {
+    display: block;
+    background-color: #c8d9adff;
+}
+
 .grid-container {
-    margin-top: 50px;
+    
     display: grid;
     padding: 10px;
     gap: 1px;
@@ -12,31 +19,45 @@
     margin-left: -20px;
     margin-right: -20px;
     min-height: 700px;
+    
 }
 
 p {
     font-size: x-large;
-    padding: 10px;
+    padding: 0px 10px;
+    margin: 2px;
 }
 
 h1 {
     font-size: xx-large;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
+    margin:0px;
+    font-family: 'Denk One';
 }
 
 .menu { 
     grid-area: menu;
     background-color: #c8d9adff;
+    min-width: 20vw;
+    max-width: 20vw;
 }
 .main { 
     grid-area: main;
-    background-color: #c8d9adff;
+    background-color: #EEEEEE;
+    min-width: 62vw;
 }
 .right { 
     grid-area: right;
     background-color: #c8d9adff;
+    padding: .5vw;
+    min-width: 20vw;
+    max-width: 20vw;
 }
 .footer { 
     grid-area: footer;
     background-color: #c8d9adff;
+}
+
+#slogan{
+    font-size: 1rem;
 }

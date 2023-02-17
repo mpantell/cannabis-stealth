@@ -20,5 +20,5 @@ export class AdhubComponent {
     'Content Title', 'Content Type', 'Created By', 'Created Date', 'Status'
   ];
 
-  lv = true;
+  lv = false;
 }
