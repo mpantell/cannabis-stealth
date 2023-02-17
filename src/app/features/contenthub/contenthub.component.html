@@ -37,7 +37,7 @@
                         (mouseover)="setHoverIndex(i, stateResult)"
                         (mouseleave)="setHoverIndex(null, null)"
                         >
-                        <span> {{stateResult.state}}: {{stateResult.violations.length}} {{stateResult.status}}</span><span *ngIf="stateResult.violations.length>1">s</span>
+                        <span> {{stateResult.state}}: <span *ngIf="stateResult.violations.length>0" >{{stateResult.violations.length}}</span> {{stateResult.status}}</span><span *ngIf="stateResult.violations.length>1">s</span>
                         <ng-template [ngIf]="hoveredIndex === i">
                             <div class="modal">
                                 <div class="modal-content">
@@ -57,7 +57,7 @@
     </div>
 
     <div class="footer">
-        <p>this is the footer</p>
+        <p>CONFIDENTIAL</p>
     </div>
 
 </div>
