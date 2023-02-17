@@ -6,8 +6,7 @@
 
   .menulist{
     padding-left: 10px;
-    
-    font-size: x-large;
+    font-size: 1vw;
     border: 1px;
     border-color: #578a36;
   }
@@ -24,6 +23,8 @@
   .menulist li:hover{
     background-color: #578a36;
     font-family: 'Denk One';
+    cursor: pointer;
+
   }
 
   a:visited{

@@ -15,12 +15,45 @@
             <button id="create" (click)="handleCreate()">Create New</button>
         </div>
         <ng-template #elseBlock>
-            <app-content-page></app-content-page>
+            <app-content-page (onAnalyze)="setStateResults($event)"></app-content-page>
         </ng-template>
     </div>
 
     <div class="right">
-        <p>this is the right side</p>
+        <div *ngIf="lv===true; else elseBlock2">
+            <h2>Open Activities</h2>
+            <ul class="activity">
+                <li>Sensi Vape Product Launch Due in 2 Days!</li>
+                <li>Three Assets Approved and Ready for Deployment!</li>
+            </ul>
+        </div>
+        <ng-template #elseBlock2>
+            <h2 style="padding-left: 0.5vw;">Proofreader</h2>
+            <p *ngIf="!contentEditorActive" id="aiMessage">Go ahead and start typing. My AI will help you spot compliance violations!</p>
+            <div *ngIf="contentEditorActive">          
+                <ul class="stateList">
+                    <li *ngFor="let stateResult of stateResults; let i = index" 
+                        [ngClass]="stateResult.status.toLowerCase()"
+                        (mouseover)="setHoverIndex(i, stateResult)"
+                        (mouseleave)="setHoverIndex(null, null)"
+                        >
+                        <span> {{stateResult.state}}: {{stateResult.violations.length}} {{stateResult.status}}</span><span *ngIf="stateResult.violations.length>1">s</span>
+                        <ng-template [ngIf]="hoveredIndex === i">
+                            <div class="modal">
+                                <div class="modal-content">
+                                  <h2 class="violationTitle">{{ stateResult.state }} Violations</h2>
+                                  <ol class="violationDetail">
+                                    <li *ngFor="let violation of stateResult.violations; let j = index;">
+                                      <span style="text-decoration: underline;">{{ violation.code }}</span>: <br>{{ violation.description }}
+                                    </li>
+                                  </ol>
+                                </div>
+                              </div>
+                        </ng-template>
+                    </li>
+                </ul>
+            </div>
+        </ng-template>
     </div>
 
     <div class="footer">
