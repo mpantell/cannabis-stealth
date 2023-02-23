@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="./contenthub.component.css">
   </head>
 
-
+<div class="container">
 <div class="grid-container">
 
     <div class="menu">
@@ -10,7 +10,14 @@
     </div>
 
     <div class="main">
-        <div *ngIf="lv===true; else elseBlock">
+        <div class="listContainer"  *ngIf="lv===true; else elseBlock">
+            <div class="banner">
+                <img
+                width="100"
+                alt="Angular Logo"
+                src="../assets/logo/cannasense.png"
+            />
+          </div>
             <app-list-view [headers]="headers" [data]="tableData"></app-list-view>
             <button id="create" (click)="handleCreate()">Create New</button>
         </div>
@@ -69,6 +76,5 @@
     </div>
 
 </div>
-  
 
-
+</div>

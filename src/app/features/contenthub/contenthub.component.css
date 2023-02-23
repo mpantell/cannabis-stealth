@@ -1,17 +1,30 @@
 
+.container {
+    height: 100%;
+    display: block;
+    
+}
+
 .grid-container {
+    margin: 0px;
     display: grid;
     padding: 10px;
     gap: 1px;
     grid-template-areas: 
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu footer footer footer footer footer footer footer footer footer footer footer';
-    margin-left: -20px;
-    margin-right: -2.16vw;
-    min-height: 700px;
-    margin-top: -10px;
+        'menu main main main main right'
+        'menu footer footer footer footer right';
+}
+
+.banner {
+    width: 100%;
+    background-color:#174333;
+    
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p {
@@ -26,24 +39,33 @@ h1 {
 
 .menu { 
     grid-area: menu;
-    background-color: #c8d9adff;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
 }
 .main { 
+    
     grid-area: main;
-    min-width: 62vw;
+    background-color: #EEEEEE;
+    max-width: 68vw;
+    min-width: 68vw;
+    min-height: 37vw;
+    margin-top: .5vw;
 }
+
+.listContainer{
+    padding:2%
+}
+
 .right { 
     grid-area: right;
-    background-color: #c8d9adff;
     padding: .5vw;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
+    color: white;
 }
 .footer { 
     grid-area: footer;
-    background-color: #c8d9adff;
+    color: white
 }
 
 #create{

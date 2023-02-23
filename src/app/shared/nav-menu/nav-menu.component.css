@@ -2,34 +2,37 @@
 
   .container {
     margin: 10px;
+    margin-top: 0px;
   }
 
   .menulist{
-    padding-left: 10px;
-    
+    padding:0px;
+    margin: 0px;
     font-size: 1vw;
     border: 1px;
-    border-color: #578a36;
+    border-color: #C2882B;
   }
 
   li {
     padding: 10px;
-    border: 1px solid #578a36;
+    border: 1px solid #C2882B;
     border-radius: 10px;
     text-align: center;
     margin: 10px;
     list-style: none;
+    background-color: #C2882B;
   }
 
   .menulist li:hover{
-    background-color: #578a36;
+    background-color: #0C2521;
     font-family: 'Denk One';
     cursor: pointer;
+    color: white;
 
   }
 
   a:visited{
-    color: #333
+    color: inherit;
   }
 
   a{

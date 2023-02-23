@@ -8,6 +8,8 @@ import { ListViewComponent } from '../shared/list-view/list-view.component';
 import { ContentPageComponent } from '../shared/content-page/content-page.component';
 import { ContenthubComponent } from './contenthub/contenthub.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 
 

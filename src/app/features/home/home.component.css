@@ -2,8 +2,9 @@
 
 
 .container {
+    height: 100%;
     display: block;
-    background-color: #c8d9adff;
+    
 }
 
 .grid-container {
@@ -12,14 +13,20 @@
     padding: 10px;
     gap: 1px;
     grid-template-areas: 
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu footer footer footer footer footer footer footer footer footer footer footer';
-    margin-left: -20px;
-    margin-right: -20px;
-    min-height: 700px;
-    
+        'menu main main main main right'
+        'menu footer footer footer footer right';
+}
+
+.banner {
+    width: 100%;
+    background-color:#174333;
+    min-width: 50vw;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p {
@@ -37,27 +44,38 @@ h1 {
 
 .menu { 
     grid-area: menu;
-    background-color: #c8d9adff;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
 }
 .main { 
+    padding: 2%;
     grid-area: main;
     background-color: #EEEEEE;
-    min-width: 62vw;
+    max-width: 70vw;
+    min-width: 70vw;
+    min-height: 37vw;
+    margin-top: .5vw;
 }
 .right { 
     grid-area: right;
-    background-color: #c8d9adff;
     padding: .5vw;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
+    color: white;
 }
 .footer { 
     grid-area: footer;
-    background-color: #c8d9adff;
+    color: white;
+}
+
+.w3-bar {
+    background-color: #C2882B;
 }
 
 #slogan{
     font-size: 1rem;
+}
+
+.w3-row div:hover{
+    background-color: lightgray;
 }
