@@ -8,7 +8,7 @@
 .grid-container {
     margin: 0px;
     display: grid;
-    padding: 10px;
+    padding-top: 10px;
     gap: 1px;
     grid-template-areas: 
         'menu main main main main right'

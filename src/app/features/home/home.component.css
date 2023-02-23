@@ -4,7 +4,6 @@
 .container {
     height: 100%;
     display: block;
-    
 }
 
 .grid-container {
@@ -57,6 +56,8 @@ h1 {
     min-width: 70vw;
     min-height: 37vw;
     margin-top: .5vw;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+    
 }
 .right { 
     grid-area: right;
@@ -65,6 +66,16 @@ h1 {
     max-width: 15vw;
     color: white;
 }
+
+.rightContainer {
+    background-color: #7B3400;
+    margin-right: 6%;
+    border-radius: 8%;
+    min-height: 50%;
+    padding: 8%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+}
+
 .footer { 
     grid-area: footer;
     color: white;
