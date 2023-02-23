@@ -21,6 +21,8 @@
     width: 100%;
     background-color:#174333;
     min-width: 50vw;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+    margin-bottom: 10px;
 }
 
 img {
@@ -36,10 +38,10 @@ p {
 }
 
 h1 {
-    font-size: xx-large;
+    font-size: 4em;
     padding: 10px 10px 0px 10px;
     margin:0px;
-    font-family: 'Denk One';
+    font-family: 'Belleza', sans-serif;
 }
 
 .menu { 
@@ -73,7 +75,7 @@ h1 {
 }
 
 #slogan{
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .w3-row div:hover{

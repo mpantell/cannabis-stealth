@@ -8,19 +8,22 @@
   .menulist{
     padding:0px;
     margin: 0px;
-    font-size: 1vw;
+    font-size: 1.2vw;
     border: 1px;
     border-color: #C2882B;
+    font-family: 'Belleza', sans-serif;
   }
 
   li {
     padding: 10px;
-    border: 1px solid #C2882B;
+    border: 1px solid #c2882b;
     border-radius: 10px;
     text-align: center;
     margin: 10px;
     list-style: none;
+    color: #0C2521;
     background-color: #C2882B;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
   }
 
   .menulist li:hover{
