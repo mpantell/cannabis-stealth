@@ -15,7 +15,11 @@ import { ListViewComponent } from './shared/list-view/list-view.component';
 
 import { FeaturesModule } from './features/features.module';
 import { SharedModule } from './shared/shared.module';
-
+import { FirebaseApps, initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire/compat';
+import { Database } from 'firebase/database';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,16 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     FeaturesModule,
     SharedModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase())
   ],
-  providers: [],
+  providers: [
+    FirebaseApps
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

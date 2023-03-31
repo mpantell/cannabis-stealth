@@ -1,16 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { stateResult, violation } from 'src/models/content-validation.model';
 
-interface stateResult{
-  state: string;
-  status: string;
-  violations: Violation[];
 
-}
-
-interface Violation {
-  code: string;
-  description: string;
-}
 
 @Component({
   selector: 'app-contenthub',

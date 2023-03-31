@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "cannabis-stealth"
+  },
+  "targets": {
+    "cannabis-stealth": {
+      "hosting": {
+        "cannabis-stealth": [
+          "cannabis-stealth"
+        ]
+      }
+    }
   }
 }

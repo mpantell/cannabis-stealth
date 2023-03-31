@@ -91,6 +91,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "cannabis-stealth:build:production",
+            "firebaseProject": "cannabis-stealth",
+            "firebaseHostingSite": "cannabis-stealth"
+          }
         }
       }
     }

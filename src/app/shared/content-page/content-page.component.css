@@ -44,3 +44,8 @@ body {
     
     margin: 2vw;
 }
+
+#saveContent {
+    float:right;
+    margin-top: 1%;
+}
