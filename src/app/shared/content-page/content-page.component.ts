@@ -7,7 +7,7 @@ import { ContentFormComponent } from '../content-form/content-form.component';
 import { AnalyzeContentService } from 'src/app/analyze-content.service';
 import * as firebase from 'firebase/app';
 import * as fbdb from 'firebase/database';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.dev';
 import { contentAsset } from 'src/models/content-asset.model';
 
 interface Firebase {
