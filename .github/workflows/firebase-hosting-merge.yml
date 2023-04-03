@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v1
+          with:
+            node-version: 15.2.4
+      - name: npm dependencies
+        run: npm install
       - name: Install Angular CLI
         run: npm install -g @angular/cli
       - name: Build
