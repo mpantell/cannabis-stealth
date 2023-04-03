@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "cannabis-stealth"
+    "default": "cannasense-software"
   },
   "targets": {
     "cannabis-stealth": {
@@ -9,6 +9,14 @@
           "cannabis-stealth"
         ]
       }
+    },
+    "cannasense-software": {
+      "hosting": {
+        "production": [
+          "cannasense-software"
+        ]
+      }
     }
-  }
+  },
+  "etags": {}
 }
