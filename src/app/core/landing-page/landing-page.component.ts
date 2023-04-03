@@ -14,6 +14,7 @@ export class LandingPageComponent {
 
   handleFormToggle(){
     console.log('Entering Form Toggle');
-    this.noform = !this.noform
+    this.noform = !this.noform;
+    //test comments
   }
 }
