@@ -26,6 +26,7 @@
     {
       "target": "production",
       "public": "dist/cannabis-stealth",
+      "project_id": "cannasense-software",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -41,6 +42,7 @@
     {
       "target": "development",
       "public": "dist/cannabis-stealth",
+      "project_id": "cannabis-stealth",
       "ignore": [
         "firebase.json",
         "**/.*",
