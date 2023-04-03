@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
       - name: Build
         run: |
           if [ ${{ github.ref }} = 'refs/heads/prototype' ]
