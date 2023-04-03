@@ -5,13 +5,13 @@
     "lint": "eslint --ext .js,.ts .",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=development",
     "build:prod": "ng build --configuration=production",
     "build:dev": "ng build --configuration=development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy:prod": "firebase deploy --only hosting:production",
-    "deploy:dev": "firebase deploy --only hosting:development"
+    "deploy:prod": "firebase use cannasense-software && firebase deploy --only hosting:production",
+    "deploy:dev": "firebase use cannabis-stealth && firebase deploy --only hosting:development"
   },
   "private": true,
   "dependencies": {
