@@ -4,12 +4,14 @@ import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+//databaseURL: "https://cannabis-stealth-default-rtdb.firebaseio.com",
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBrP6u4-RCQpTkV6duGSktrvfaRIORIxrM",
   authDomain: "cannabis-stealth.firebaseapp.com",
-  databaseURL: "https://cannabis-stealth-default-rtdb.firebaseio.com",
+  databaseURL: "http://127.0.0.1:4000/firestore/",
   projectId: "cannabis-stealth",
   storageBucket: "cannabis-stealth.appspot.com",
   messagingSenderId: "439282670891",
