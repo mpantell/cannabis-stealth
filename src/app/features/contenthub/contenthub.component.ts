@@ -61,4 +61,5 @@ export class ContenthubComponent {
     this.hoveredIndex = i && stateResult.status==='Violation' ? i : null;
     console.log('HOVER INDEX: ' + i);
   }
+
 }

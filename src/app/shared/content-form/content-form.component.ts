@@ -1,4 +1,6 @@
+
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormArray, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 
 
@@ -12,13 +14,13 @@ import { FormControl, FormBuilder, Validators, FormArray, FormsModule, ReactiveF
 export class ContentFormComponent {
   
   @Output() onSave = new EventEmitter<{ title: string, content_type: string, launch_date: Date }>();
-
   editMode: boolean = false;
   title="Sample Title";
 
   contentDetails = this.fb.group({
     contentTitle: [''],
     contentLaunchDate: [ ],
+    contentLaunchDate: [''],
     contentType: ['']
   });
 
