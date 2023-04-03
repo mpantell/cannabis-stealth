@@ -13,10 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build
-        run: npm run ${{ github.ref == 'refs/heads/prototype' ? 'build:dev' : 'build:prod' }}
+        run: "npm run ${{ github.ref == 'refs/heads/prototype' ? 'build:dev' : 'build:prod' }}"
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CANNASENSE_SOFTWARE }}'
           channelId: live
-          projectId: ${{ github.ref == 'refs/heads/prototype' ? 'cannabis-stealth' : 'cannasense-software' }}
+          projectId: "${{ github.ref == 'refs/heads/prototype' ? 'cannabis-stealth' : 'cannasense-software' }}"
