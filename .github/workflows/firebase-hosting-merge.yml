@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 15.2.4
+          node-version: '16.x'
       - name: npm dependencies
         run: npm install
       - name: Install Angular CLI
