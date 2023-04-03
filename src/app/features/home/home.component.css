@@ -2,8 +2,8 @@
 
 
 .container {
+    height: 100%;
     display: block;
-    background-color: #c8d9adff;
 }
 
 .grid-container {
@@ -12,14 +12,22 @@
     padding: 10px;
     gap: 1px;
     grid-template-areas: 
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu footer footer footer footer footer footer footer footer footer footer footer';
-    margin-left: -20px;
-    margin-right: -20px;
-    min-height: 700px;
-    
+        'menu main main main main right'
+        'menu footer footer footer footer right';
+}
+
+.banner {
+    width: 100%;
+    background-color:#174333;
+    min-width: 50vw;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+    margin-bottom: 10px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p {
@@ -29,35 +37,58 @@ p {
 }
 
 h1 {
-    font-size: xx-large;
+    font-size: 4em;
     padding: 10px 10px 0px 10px;
     margin:0px;
-    font-family: 'Denk One';
+    font-family: 'Belleza', sans-serif;
 }
 
 .menu { 
     grid-area: menu;
-    background-color: #c8d9adff;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
 }
 .main { 
+    padding: 2%;
     grid-area: main;
     background-color: #EEEEEE;
-    min-width: 62vw;
+    max-width: 70vw;
+    min-width: 70vw;
+    min-height: 37vw;
+    margin-top: .5vw;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+    
 }
 .right { 
     grid-area: right;
-    background-color: #c8d9adff;
     padding: .5vw;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
+    color: white;
 }
+
+.rightContainer {
+    background-color: #7B3400;
+    margin-right: 6%;
+    border-radius: 8%;
+    min-height: 50%;
+    padding: 8%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+}
+
 .footer { 
     grid-area: footer;
-    background-color: #c8d9adff;
+    color: white;
+}
+
+.w3-bar {
+    background-color: #C2882B;
 }
 
 #slogan{
-    font-size: 1rem;
+    font-size: 1em;
+}
+
+.w3-row div:hover{
+    background-color: lightgray;
 }

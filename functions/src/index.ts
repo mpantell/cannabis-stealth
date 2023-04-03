@@ -1,9 +1,19 @@
-// import * as functions from "firebase-functions";
+import * as functions from "firebase-functions";
 
-// // Start writing functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+exports.makeUppercase = functions.firestore.document("/messages/{documentId}")
+  .onCreate((snap: functions.firestore.DocumentSnapshot,
+    context: functions.EventContext) => {
+    const original: string = snap?.data()?.original;
+    console.log("Uppercasing", context.params.documentId, original);
+    const uppercase: string = original.toUpperCase();
+    return snap.ref.set({uppercase}, {merge: true});
+  });
+
+exports.registerLead =
+functions.firestore.document("/demo-requests/{requestId}")
+  .onCreate((snap: functions.firestore.DocumentSnapshot,
+    context: functions.EventContext) => {
+    const original: string = snap?.data()?.original;
+    console.log("Logging Original: ");
+    console.log(original);
+  });

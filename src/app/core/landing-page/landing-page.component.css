@@ -1,0 +1,158 @@
+html,body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    display: inline-block;
+    align-self: center;
+}
+
+.sideContainer{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+}
+
+.container {
+    width: 50%;
+    min-height: 98vh;
+    background-color: lightgrey;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pStatement {
+    text-align: center;
+    width: 100%;
+}
+
+.pStatement h1{
+    padding-top: 2%;
+    font-size: 3vw;
+}
+
+h3 {
+    font-size: 2vw;
+    margin:2vh;
+}
+
+.features {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.features ul {
+    margin-top: 2%;
+}
+
+.features li {
+    font-size: 1.2vw;
+    padding-top: 2%;
+}
+
+.buttonContainer {
+    padding: 2%;
+    display: flex;
+    width: 60%;
+    
+}
+
+.buttonContainer2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4vh;
+}
+
+/* button 28 */
+.button-28 {
+  appearance: none;
+  background-color: lightgrey;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 1vw;
+  font-weight: 600;
+  line-height: normal;
+  margin: auto;
+  min-height: 7.5vh;
+  min-width: 0;
+  outline: none;
+  padding: 1%;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 50%;
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    body {
+      flex-direction: column !important;
+    }
+    .buttonContainer{
+        display: none;
+    }
+    .container{
+        justify-content: flex-start;
+        width: 80%;
+    }
+    .sideContainer{
+        margin-bottom: 1vh;
+    }
+    .button-28{
+        font-size: 3vw;
+        width: 70%;
+    }
+    .features li{
+        font-size: 2vw;
+    }
+    
+  }
+
+  @media (max-width: 500px) {
+    .pStatement h1{
+        font-size: 4vw;
+    }
+    .features li{
+        font-size: 2.5vw;
+    }
+    h3{
+        font-size:3vw;
+    }
+ 
+    
+  }

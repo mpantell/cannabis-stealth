@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="./contenthub.component.css">
   </head>
 
-
+<div class="container">
 <div class="grid-container">
 
     <div class="menu">
@@ -10,7 +10,14 @@
     </div>
 
     <div class="main">
-        <div *ngIf="lv===true; else elseBlock">
+        <div class="listContainer"  *ngIf="lv===true; else elseBlock">
+            <div class="banner">
+                <img
+                width="100"
+                alt="Angular Logo"
+                src="../assets/logo/cannasense.png"
+            />
+          </div>
             <app-list-view [headers]="headers" [data]="tableData"></app-list-view>
             <button id="create" (click)="handleCreate()">Create New</button>
         </div>
@@ -26,10 +33,18 @@
                 <li>Sensi Vape Product Launch Due in 2 Days!</li>
                 <li>Three Assets Approved and Ready for Deployment!</li>
             </ul>
+            <h2>Demo Instructions</h2>
+            <ul class="activity">
+                <li>Click create new</li>
+                <li>Edit Content</li>
+                <li>See what happens when you type the word "high"</li>
+            </ul>
         </div>
         <ng-template #elseBlock2>
-            <h2 style="padding-left: 0.5vw;">Proofreader</h2>
-            <p *ngIf="!contentEditorActive" id="aiMessage">Go ahead and start typing. My AI will help you spot compliance violations!</p>
+            <h2 style="padding-left: 5vw;">Proofreader</h2>
+            <p style="margin-right: 5vw;" *ngIf="!contentEditorActive" id="aiMessage">Go ahead and start typing. My AI will help you spot compliance violations!
+               <br><br>*Hint: See what happens when you use the word "high"
+            </p>
             <div *ngIf="contentEditorActive">          
                 <ul class="stateList">
                     <li *ngFor="let stateResult of stateResults; let i = index" 
@@ -61,6 +76,5 @@
     </div>
 
 </div>
-  
 
-
+</div>

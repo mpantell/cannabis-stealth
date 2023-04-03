@@ -5,6 +5,22 @@ import { QuillModule } from 'ngx-quill';
 import Quill from 'quill';
 import { ContentFormComponent } from '../content-form/content-form.component';
 import { AnalyzeContentService } from 'src/app/analyze-content.service';
+import * as firebase from 'firebase/app';
+import * as fbdb from 'firebase/database';
+import { environment } from 'src/environments/environment';
+import { contentAsset } from 'src/models/content-asset.model';
+
+interface Firebase {
+  database: () => fbdb.Database;
+}
+
+const firebaseConfig = environment.firebase;
+
+firebase.initializeApp(firebaseConfig);
+
+const fbData: Firebase = {
+  database: () => fbdb.getDatabase(),
+};
 
 @Component({
   standalone: true,
@@ -19,6 +35,7 @@ import { AnalyzeContentService } from 'src/app/analyze-content.service';
   ],
   providers: [AnalyzeContentService]
 })
+
 export class ContentPageComponent {
   private sample = [
     { state: 'IL', status: 'Compliant', violations: [] },
@@ -27,7 +44,6 @@ export class ContentPageComponent {
     { state: 'CA', status: 'Compliant', violations: [] },
     { state: 'MI', status: 'Compliant', violations: [] }
   ];
-
 
   contentTitle = "Sensii Vape Product Launch"; //replace as input
   contentType = "Web Content";
@@ -84,8 +100,19 @@ export class ContentPageComponent {
       const analysisResult = await this.analyzeContentService.analyzeContent(content);
       this.onAnalyze.emit(analysisResult);      
 
-    }
+  }
 
+  handleSaveContent(){
+    /*const content = document.querySelector('#editor-container .ql-editor')?.textContent ?? '';
+    const contentRef:contentAsset = {
+      name: 'test',
+      contentType: 'test',
+      createdDate: 'test'
+      contentVersions: contentVersion[];
+      createdBy: string;
+    }
+    fbData.database.push(contentRef)*/
+  }
 
     
     // Do something with the analysis result

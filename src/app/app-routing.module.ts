@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LandingPageComponent } from './core/landing-page/landing-page.component';
 
 import { LoginComponent } from './core/login/login.component';
+import { SignUpComponent } from './core/sign-up/sign-up.component';
 //import { SampleComponent } from './core/sample/sample.component';
 import { AdhubComponent } from './features/adhub/adhub.component';
 import { ContenthubComponent } from './features/contenthub/contenthub.component';
@@ -10,11 +12,14 @@ import { ContentPageComponent } from './shared/content-page/content-page.compone
 
 
 const routes: Routes = [
+  { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   //{ path: 'sample', component: SampleComponent },
   { path: 'home', component: HomeComponent },
   { path: 'adhub', component: AdhubComponent},
-  { path: 'contentHub', component: ContenthubComponent}
+  { path: 'contentHub', component: ContenthubComponent},
+  { path: 'landing-page', component: LandingPageComponent},
+  { path: 'sign-up', component: SignUpComponent}
 
 ];
 

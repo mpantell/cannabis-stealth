@@ -23,7 +23,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/cannabis-stealth",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -70,6 +70,6 @@
     "singleProjectMode": true
   },
   "remoteconfig": {
-    "template": "remoteconfig.json"
+    "template": "remoteconfig.template.json"
   }
 }

@@ -1,0 +1,56 @@
+  body {
+    display: flex;
+    height: 100%;
+    place-items: center;
+    place-content: center;
+  }
+  
+  .formDiv {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 2rem;
+    align-items: start;
+  }
+  
+  label {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 2rem;
+    align-items: center;
+    width: 100%;
+    padding-bottom: .5vw;
+    padding-left: .3vw;
+  }
+  
+  input {
+    background: white;
+    color: rgb(7 2 18);
+    transition: all 200ms ease;
+    border-left: 0 solid transparent;
+    border: 0;
+    height: 4vh;
+    padding: 0 calc(5.8rem * 0.5);
+    border-radius: calc(5.8rem * 0.3);
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 20%);
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .buttonContainer button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 1vw;
+    cursor: pointer;
+  }
+  
+  

@@ -1,17 +1,30 @@
 
+.container {
+    height: 100%;
+    display: block;
+    
+}
+
 .grid-container {
+    margin: 0px;
     display: grid;
-    padding: 10px;
+    padding-top: 10px;
     gap: 1px;
     grid-template-areas: 
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu footer footer footer footer footer footer footer footer footer footer footer';
-    margin-left: -20px;
-    margin-right: -2.16vw;
-    min-height: 700px;
-    margin-top: -10px;
+        'menu main main main main right'
+        'menu footer footer footer footer right';
+}
+
+.banner {
+    width: 100%;
+    background-color:#174333;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p {
@@ -26,24 +39,33 @@ h1 {
 
 .menu { 
     grid-area: menu;
-    background-color: #c8d9adff;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
 }
 .main { 
+    
     grid-area: main;
-    min-width: 62vw;
+    background-color: #EEEEEE;
+    max-width: 68vw;
+    min-width: 68vw;
+    min-height: 37vw;
+    margin-top: .5vw;
 }
+
+.listContainer{
+    padding:2%
+}
+
 .right { 
     grid-area: right;
-    background-color: #c8d9adff;
     padding: .5vw;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 15vw;
+    max-width: 15vw;
+    color: white;
 }
 .footer { 
     grid-area: footer;
-    background-color: #c8d9adff;
+    color: white
 }
 
 #create{
@@ -65,7 +87,7 @@ ul {
 }
 
 .activity li {
-    padding-top: .4vw;
+    padding-bottom: 1vw;
 }
 
 .activity li::before {
@@ -75,7 +97,7 @@ ul {
     height: 1em;
     margin-right: 0.5em;
     align-self: center;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth='1.5' stroke='currentColor' className='w-6 h-6'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5' /%3E%3C/svg%3E");
+    background-image: url(../../../assets/logo/notification.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -129,6 +151,7 @@ modal {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 1%;
   }
 
   .modal-content {
