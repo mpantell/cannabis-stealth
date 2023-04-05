@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
-  imports: [ SignUpComponent, CommonModule ],
+  imports: [ SignUpComponent, CommonModule, ReactiveFormsModule ],
   standalone:true
 })
 export class LandingPageComponent {

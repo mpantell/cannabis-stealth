@@ -8,15 +8,12 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    LandingPageComponent,
-    SignUpComponent
   ],
   imports: [
     CommonModule,
   //  BrowserModule,
     ReactiveFormsModule,
-    FormsModule,
-    Input
+    FormsModule
   ]
 })
 export class CoreModule { }
