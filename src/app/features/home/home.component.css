@@ -1,11 +1,26 @@
 
 body{
     height: 100%;
+    
 }
 
 .container {
     height: 100%;
     display: block;
+    margin-top: 5%;
+}
+
+
+.main { 
+    padding: 2%;
+    grid-area: main;
+    background-color: #EEEEEE;
+    max-width: 70vw;
+    min-width: 70vw;
+    min-height: 37vw;
+    margin-top: .5vw;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+    margin-left: 10px;
 }
 
 
@@ -36,22 +51,7 @@ h1 {
     font-family: 'Belleza', sans-serif;
 }
 
-.menu { 
-    grid-area: menu;
-    min-width: 15vw;
-    max-width: 15vw;
-}
-.main { 
-    padding: 2%;
-    grid-area: main;
-    background-color: #EEEEEE;
-    max-width: 70vw;
-    min-width: 70vw;
-    min-height: 37vw;
-    margin-top: .5vw;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
-    
-}
+
 .right { 
     grid-area: right;
     padding: .5vw;

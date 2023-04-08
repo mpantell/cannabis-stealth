@@ -1,22 +1,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./adhub.component.css">
-  </head>
+</head>
 
-
-  <div class="container">
-    <div class="grid-container">
-    
-    
-    
+<body>
+    <div class="container">
         <div class="main">
-            <div class="listContainer"  *ngIf="lv===true; else elseBlock">
+            <div class="listContainer" *ngIf="lv===true; else elseBlock">
                 <div class="banner">
-                    <img
-                    width="100"
-                    alt="Angular Logo"
-                    src="../assets/logo/cannasense.png"
-                />
-              </div>
+                    <img width="100" alt="Angular Logo" src="../assets/logo/cannasense.png" />
+                </div>
                 <app-list-view [headers]="headers" [data]="tableData"></app-list-view>
                 <button id="create" (click)="handleCreate()">Create New</button>
             </div>
@@ -24,7 +16,7 @@
                 <app-content-page id="content-page" (onAnalyze)="setStateResults($event)"></app-content-page>
             </ng-template>
         </div>
-    
+
         <div class="right">
             <div *ngIf="lv===true; else elseBlock2">
                 <h2>Open Activities</h2>
@@ -40,41 +32,48 @@
                 </ul>
             </div>
             <ng-template #elseBlock2>
-                <h2 style="padding-left: 5vw;">Proofreader</h2>
+                <h2>Proofreader</h2>
                 <button (click)="analyzeContent($event)">Analyze Content</button>
-                <p style="margin-right: 5vw;" *ngIf="!contentEditorActive" id="aiMessage">Go ahead and start typing. My AI will help you spot compliance violations!
-                   <br><br>*Hint: See what happens when you use the word "high"
+                <p class="intro-message" style="margin-right: 5vw;" *ngIf="!contentEditorActive" id="aiMessage">Go ahead and start typing.
+                    My AI will help you spot compliance violations!
+                    <br><br>*Hint: See what happens when you use the word "high"
                 </p>
-                <div *ngIf="contentEditorActive">          
+                <div *ngIf="contentEditorActive">
                     <ul class="stateList">
-                        <li *ngFor="let stateResult of stateResults; let i = index" 
-                            [ngClass]="stateResult.status.toLowerCase()"
-                            (mouseover)="setHoverIndex(i, stateResult)"
-                            (mouseleave)="setHoverIndex(null, null)"
-                            >
-                            <span> {{stateResult.state}}: <span *ngIf="stateResult.violations.length>0" >{{stateResult.violations.length}}</span> {{stateResult.status}}</span><span *ngIf="stateResult.violations.length>1">s</span>
+                        <li *ngFor="let stateResult of stateResults; let i = index"
+                            [ngClass]="stateResult.status.toLowerCase()" (mouseover)="setHoverIndex(i, stateResult)"
+                            (mouseleave)="setHoverIndex(null, null)">
+                            <span> {{stateResult.state}}: <span
+                                    *ngIf="stateResult.violations.length>0">{{stateResult.violations.length}}</span>
+                                {{stateResult.status}}</span><span *ngIf="stateResult.violations.length>1">s</span>
                             <ng-template [ngIf]="hoveredIndex === i">
                                 <div class="modal">
                                     <div class="modal-content">
-                                      <h2 class="violationTitle">{{ stateResult.state }} Violations</h2>
-                                      <ol class="violationDetail">
-                                        <li *ngFor="let violation of stateResult.violations; let j = index;">
-                                          <span style="text-decoration: underline;">{{ violation.code }}</span>: <br>{{ violation.description }}
-                                        </li>
-                                      </ol>
+                                        <h2 class="violationTitle">{{ stateResult.state }} Violations</h2>
+                                        <ol class="violationDetail">
+                                            <li *ngFor="let violation of stateResult.violations; let j = index;">
+                                                <span style="text-decoration: underline;">{{ violation.code
+                                                    }}</span>: <br>{{ violation.description }}
+                                            </li>
+                                        </ol>
                                     </div>
-                                  </div>
+                                </div>
                             </ng-template>
                         </li>
                     </ul>
                 </div>
+
+                <div class="gpt-response">
+                    <p>{{ gptResults[0] }}</p>
+                </div>
             </ng-template>
         </div>
-    
-        <div class="footer">
-            <p>CONFIDENTIAL</p>
-        </div>
-    
+
+        
+        
+        
     </div>
-    
+    <div class="footer">
+        <p>CONFIDENTIAL</p>
     </div>
+</body>

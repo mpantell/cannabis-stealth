@@ -13,6 +13,13 @@
   background-color: #174333;
 }
 
+.toolbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
 .cannasense-toolbar {
   position: sticky;
   top: 0;
@@ -57,8 +64,9 @@
 }
 
 .cannasense-navbar {
-  width: 5em;
-  float: left;
+  max-width: 70.5px;
+  min-width: 70.5px;
+  justify-content: center;
 }
 
 #logo {

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { stateResult } from 'src/models/content-validation.model';
 import { Gpt4AnalyzeContentService } from 'src/app/services/gpt-4-analyze-content.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-adhub',
@@ -12,9 +13,10 @@ export class AdhubComponent {
   @Input() states: string[] = ["Illinois"];
   @Input() stateResults: stateResult[] = [];
   @Input() contentEditorActive: boolean = false;
+  gptResults: string[] = [];
   hoveredIndex: any = null;
 
-  constructor(private gpt4: Gpt4AnalyzeContentService) {}
+  constructor(private gpt4: Gpt4AnalyzeContentService, private toastr:ToastrService) { }
 
   tableData = [
     ["Sensii Vape Product Launch", "Press Release", "Matthew Pantell", "2023-02-13", "Draft"],
@@ -60,14 +62,30 @@ export class AdhubComponent {
     console.log('HOVER INDEX: ' + i);
   }
 
-  async analyzeContent(event:any){
-    
+  async analyzeContent(event: any) {
+
     let contentElement = document.getElementById('content-page');
     let content = contentElement?.innerText;
-    if(content){
-      let prompts = this.gpt4.buildPrompts(['IL'], content); 
-      let results = this.gpt4.executePrompts(prompts);
-      console.log(results);
+    if (content) {
+      const prompts = this.gpt4.buildPrompts(['IL'], content);
+      //let results = this.gpt4.executePrompts(prompts);
+      //console.log(results);
+
+      this.gpt4.executePromptsFrontend(prompts).then(responses => {
+        console.log(responses[0]);
+        this.gptResults.push(responses[0]);
+      }).catch(err => {
+        console.log(err);
+        this.showError(err.errorMessage.toString());
+      });
     }
+  }
+
+  showError(errorMessage:string) {
+    this.toastr.error('Thank you for your interest! We will contact you soon with next steps', 'Success', 
+    {
+      timeOut:5000,
+      positionClass: 'toast-top-right',
+    });
   }
 }

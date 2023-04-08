@@ -6,59 +6,55 @@
 <body>
 
   <div class="container">
-    <div class="grid-container">
 
-      <!--
+
+    <!--
       <div class="menu">
         <app-nav-menu></app-nav-menu>
       </div>-->
 
-      <div class="main">
+    <div class="main">
 
-        <div class="banner">
-          <img width="100" alt="Angular Logo" src="../assets/logo/cannasense.png" />
-        </div>
+      <div class="banner">
+        <img width="100" alt="Angular Logo" src="../assets/logo/cannasense.png" />
+      </div>
 
-        <div class="w3-container">
-          <div class="w3-row">
-            <a href="javascript:void(0)" (click)="setTab($event, 'about')">
-              <div
-                [className]="aboutActive ? 'w3-third tablink w3-bottombar w3-padding w3-border-green' : 'w3-third tablink w3-bottombar w3-padding'">
-                About</div>
-            </a>
-            <!--<a href="javascript:void(0)" (click)="setTab($event, 'team')">
+      <div class="w3-container">
+        <div class="w3-row">
+          <a href="javascript:void(0)" (click)="setTab($event, 'about')">
+            <div
+              [className]="aboutActive ? 'w3-third tablink w3-bottombar w3-padding w3-border-green' : 'w3-third tablink w3-bottombar w3-padding'">
+              About</div>
+          </a>
+          <!--<a href="javascript:void(0)" (click)="setTab($event, 'team')">
                     <div [className]="teamActive ? 'w3-third tablink w3-bottombar w3-padding w3-border-green' : 'w3-third tablink w3-bottombar w3-padding'">The Team</div>
                 </a>-->
-            <!--<button class="w3-bar-item w3-button w3-third" (click)="setTab($event, 'team')">The Team</button>-->
-          </div>
-
+          <!--<button class="w3-bar-item w3-button w3-third" (click)="setTab($event, 'team')">The Team</button>-->
         </div>
-
-        <div id="about" class="tab" [style.display]="aboutTab">
-          <h1>cannasense</h1>
-          <p id="slogan">The first AI-powered content management system for Cannabis</p><br>
-          <p id="description">cannasense empowers content creators to manage a variety of digital assets including web
-            content, press releases, advertising campaigns, and even labels & packaging.
-            <br><br>With our AI-powered proofreader catching any "uh-ohs" along the way, your team can easily manage
-            multiple content versions with common elements alongside tailored content for each state.
-          </p>
-        </div>
-
-
 
       </div>
 
-      <div class="right">
-        <div class="rightContainer">
-          <p>Checkout Content Hub for a Demo. <br><br>Other modules coming soon!</p>
-        </div>
+      <div id="about" class="tab" [style.display]="aboutTab">
+        <h1>cannasense</h1>
+        <p id="slogan">The first AI-powered content management system for Cannabis</p><br>
+        <p id="description">cannasense empowers content creators to manage a variety of digital assets including web
+          content, press releases, advertising campaigns, and even labels & packaging.
+          <br><br>With our AI-powered proofreader catching any "uh-ohs" along the way, your team can easily manage
+          multiple content versions with common elements alongside tailored content for each state.
+        </p>
       </div>
 
-      <div class="footer">
-        <p>CONFIDENTIAL</p>
-      </div>
+
 
     </div>
 
+    <div class="right">
+      <div class="rightContainer">
+        <p>Checkout Content Hub for a Demo. <br><br>Other modules coming soon!</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>CONFIDENTIAL</p>
   </div>
 </body>
