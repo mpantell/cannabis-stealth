@@ -7,6 +7,7 @@ import { QuillModule } from 'ngx-quill';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ContentFormComponent } from './content-form/content-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,7 +23,8 @@ import { ContentFormComponent } from './content-form/content-form.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    ContentFormComponent
+    ContentFormComponent,
+    HttpClientModule
   ],
   exports: [
     NavMenuComponent,

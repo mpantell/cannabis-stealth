@@ -22,6 +22,9 @@ import { app, firebaseConfig, firestore, appName } from './firebase';
 import { getFirestore } from 'firebase/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import 'reflect-metadata';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
     FeaturesModule,
     SharedModule,
@@ -40,6 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(firebaseConfig, appName),
     BrowserAnimationsModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 10000
     }

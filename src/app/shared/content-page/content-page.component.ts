@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import Quill from 'quill';
 import { ContentFormComponent } from '../content-form/content-form.component';
-import { AnalyzeContentService } from 'src/app/analyze-content.service';
+import { AnalyzeContentService } from 'src/app/services/analyze-content.service';
 import * as firebase from 'firebase/app';
 import * as fbdb from 'firebase/database';
 import { environment } from 'src/environments/environment.dev';

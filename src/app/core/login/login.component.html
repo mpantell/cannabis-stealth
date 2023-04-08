@@ -1,14 +1,30 @@
-<div class="container">
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
-  
+<head>
+  <link rel="stylesheet" type="text/css" href="./login.component.css">
+</head>
+
+
+<body>
+  <div class="sideContainer">
+    <img id="logo" style="margin:0px;" width="60%" alt="Angular Logo" src="../../../assets/logo/newLogo.png" />
+  </div>
+  <div class="login-container">
+    <div class="header">
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      <h1>Login to your account</h1>
+      <p>New to cannasense? Submit a <a [routerLink]="['/landing-page']">Demo Request</a> and we will set you up with access</p>
+    </div>
+    <div class="formContainer">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" id="email" [(ngModel)]="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>

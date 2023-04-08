@@ -17,6 +17,7 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
+              "core-js/es/reflect",
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
@@ -26,7 +27,8 @@
               "src/firebase"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css" 
             ],
             "scripts": []
           },
@@ -101,7 +103,8 @@
               "src/firebase"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css" 
             ],
             "scripts": []
           }

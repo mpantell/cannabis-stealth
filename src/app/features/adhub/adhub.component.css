@@ -1,17 +1,30 @@
 
+.container {
+    height: 100%;
+    display: block;
+    
+}
+
 .grid-container {
+    margin: 0px;
     display: grid;
-    padding: 10px;
+    padding-top: 10px;
     gap: 1px;
     grid-template-areas: 
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu main main main main main main main main main main right'
-        'menu footer footer footer footer footer footer footer footer footer footer footer';
-    margin-left: -20px;
-    margin-right: -35px;
-    min-height: 700px;
-    margin-top: -10px;
+        'menu main main main main right'
+        'menu footer footer footer footer right';
+}
+
+.banner {
+    width: 100%;
+    background-color:#174333;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p {
@@ -26,17 +39,138 @@ h1 {
 
 .menu { 
     grid-area: menu;
-    background-color: #c8d9adff;
+    min-width: 15vw;
+    max-width: 15vw;
 }
 .main { 
-    grid-area: main;
     
+    grid-area: main;
+    background-color: #EEEEEE;
+    max-width: 68vw;
+    min-width: 68vw;
+    min-height: 37vw;
+    margin-top: .5vw;
 }
+
+.listContainer{
+    padding:2%
+}
+
 .right { 
     grid-area: right;
-    background-color: #c8d9adff;
+    padding: .5vw;
+    min-width: 15vw;
+    max-width: 15vw;
+    color: white;
 }
 .footer { 
     grid-area: footer;
-    background-color: #c8d9adff;
+    color: white
 }
+
+#create{
+    float: right;
+    margin-right: 79px;
+}
+
+ul {
+    padding: .2vw;
+}
+
+.activity {
+    list-style-type: none;
+    margin: .5vw;
+    font-size: 1rem;
+    padding-left: 1.28571429em;
+    text-indent: -1.6em;
+}
+
+.activity li {
+    padding-bottom: 1vw;
+}
+
+.activity li::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    align-self: center;
+    background-image: url(../../../assets/logo/notification.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.stateList {
+    list-style-type: none;
+    
+}
+
+.stateList li{
+    padding-top:.5vw;
+    font-size: 1.2rem;
+}
+
+.stateList li::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.stateList li.compliant::before{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z' /%3E%3C/svg%3E");
+}
+
+.stateList li.violation::before{
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /%3E%3C/svg%3E');
+}
+
+.stateList li.violation{
+    color: red;
+}
+
+#aiMessage {
+    font-size: medium;
+    margin:0px;
+    padding:0px;
+    padding-left: .5vw;
+}
+
+modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 4vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1%;
+  }
+
+  .modal-content {
+    background-color: #EEEEEE;
+    padding: 20px;
+    border-radius: 5px;
+    text-decoration: none !important;
+  }
+
+  .violationTitle{
+    font-size: small;
+  }
+
+  .violationDetail li{
+    font-size: small;
+    text-decoration: none !important;
+    padding-left: 1.28571429em;
+    text-indent: -1.6em;
+  }
+
+  li.violation span{
+    text-decoration: underline;
+  }

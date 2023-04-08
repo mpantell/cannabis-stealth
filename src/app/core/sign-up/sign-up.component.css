@@ -53,4 +53,7 @@
     cursor: pointer;
   }
   
+  .custom-toast{
+    border-radius: 10%;
+  }
   

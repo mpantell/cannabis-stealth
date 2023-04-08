@@ -8,6 +8,20 @@ body{
     display: block;
 }
 
+.grid-container {
+    
+    display: grid;
+    padding: 10px;
+    gap: 1px;
+    grid-template-areas: 
+        'menu main main main main right'
+        'menu main main main main right'
+        'menu main main main main right'
+        'menu main main main main right'
+        'menu main main main main right'
+        'menu main main main main right'
+        'menu footer footer footer footer right';
+}
 
 .banner {
     width: 100%;

@@ -2,6 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { AppModule } from './app/app.module';
 import 'zone.js';
+import 'reflect-metadata';
 //import dotenv from 'dotenv';
 
 /*if (process.env['NODE_ENV'] === 'production') {
@@ -9,7 +10,6 @@ import 'zone.js';
 }else{
   dotenv.config();
 }*/
-
 
 
 platformBrowserDynamic().bootstrapModule(AppModule)

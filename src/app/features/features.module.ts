@@ -9,6 +9,8 @@ import { ContentPageComponent } from '../shared/content-page/content-page.compon
 import { ContenthubComponent } from './contenthub/contenthub.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -21,7 +23,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     NavMenuComponent,
     ListViewComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [HomeComponent]
 })

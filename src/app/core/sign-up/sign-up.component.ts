@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 //import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -66,9 +67,10 @@ export class SignUpComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.success('Thank you for your interest! We will contact you soon with next steps', 'Success', {
-      timeOut:1000,
-      toastClass: 'custom-toast' // Add custom class to the toast message
+    this.toastr.success('Thank you for your interest! We will contact you soon with next steps', 'Success', 
+    {
+      timeOut:5000,
+      positionClass: 'toast-top-right',
     });
   }
 
