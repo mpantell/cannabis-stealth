@@ -54,3 +54,4 @@ firebase.prod.config.js
 firebase.dev.config.js
 firebase-config.js
 
+/src/app/environments/environment.ts

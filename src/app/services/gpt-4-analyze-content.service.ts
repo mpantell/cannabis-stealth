@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { OpenAIApi, Configuration, ChatCompletionRequestMessage, ChatCompletionResponseMessage } from 'openai';
 import { Input } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { OPEN_API_KEY } from 'src/environments/environment';
 
 
 
@@ -17,9 +18,7 @@ export class Gpt4AnalyzeContentService {
 
   }
 
-  configuration = new Configuration({
-    apiKey: "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"
-  })
+  configuration = new Configuration(OPEN_API_KEY);
 
   openAI = new OpenAIApi(this.configuration);
 
@@ -94,12 +93,13 @@ export class Gpt4AnalyzeContentService {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + String('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')
+          'Authorization': 'Bearer ' + String(OPEN_API_KEY.apiKey)
         },
         body: JSON.stringify(params)
       };
       try {
         const fetchResponse = await fetch('https://api.openai.com/v1/chat/completions', requestOptions);
+        console.log(fetchResponse);
         const data = await fetchResponse.json();
         responses.push(data.choices[0].message.content.toString());
       } catch (error:any) {

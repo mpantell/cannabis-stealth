@@ -20,5 +20,9 @@ export const prodConfig = {
   measurementId: "G-6CTQVGN7N7"
 };
 
+export const OPEN_API_KEY = {
+  apiKey: "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"
+};
+
 export const targetEnvironment:string = "dev";
 
