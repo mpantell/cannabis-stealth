@@ -6,7 +6,8 @@
 
 
 <body>
-  <!-------------------------TOOLBAR------------------------->
+  <app-layout [authedExperience]="authExperience()"></app-layout>
+  <!-------------------------TOOLBAR-----------------------
   <div class="toolbar-container">
     <div *ngIf="authExperience()" id="cannasense-toolbar" class="cannasense-toolbar">
       <a [routerLink]="['home']">
@@ -19,21 +20,26 @@
         </div>
       </a>
     </div>
-  </div>
+  </div>-->
+  
+  <!--
+  <app-toolbar *ngIf="authExperience()"></app-toolbar>
 
   <div class="app-container">
     <div *ngIf="authExperience()" class="cannasense-navbar">
       <app-nav-menu>
 
       </app-nav-menu>
-    </div>
-    <!-------------------------ROUTER OUTLET------------------------->
+    </div>-->
+
+
+    <!-------------------------ROUTER OUTLET-----------------------
     <div id="router-outlet">
       <router-outlet>
       </router-outlet>
     </div>
   </div>
-</body>
+</body>-->
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -13,7 +13,7 @@ import { ContentPageComponent } from './shared/content-page/content-page.compone
 
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   //{ path: 'sample', component: SampleComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },

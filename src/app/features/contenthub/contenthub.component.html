@@ -3,29 +3,21 @@
   </head>
 
 <div class="container">
-<div class="grid-container">
-
-
-
     <div class="main">
         <div class="listContainer"  *ngIf="lv===true; else elseBlock">
             <div class="banner">
-                <img
-                width="100"
-                alt="Angular Logo"
-                src="../assets/logo/cannasense.png"
-            />
+                <h1>Content Hub</h1>
           </div>
             <app-list-view [headers]="headers" [data]="tableData"></app-list-view>
             <button id="create" (click)="handleCreate()">Create New</button>
         </div>
         <ng-template #elseBlock>
-            <app-content-page (onAnalyze)="setStateResults($event)"></app-content-page>
+            <app-content-page (onInput)="setContent($event)" (onAnalyze)="setStateResults($event)"></app-content-page>
         </ng-template>
     </div>
 
     <div class="right">
-        <div *ngIf="lv===true; else elseBlock2">
+        <div class="activity-container" *ngIf="lv===true; else elseBlock2">
             <h2>Open Activities</h2>
             <ul class="activity">
                 <li>Sensi Vape Product Launch Due in 2 Days!</li>
@@ -39,6 +31,10 @@
             </ul>
         </div>
         <ng-template #elseBlock2>
+            <div class="proofreader-container">
+                <app-proofreader [contentEditorActive]="contentEditorActive" [content]="content" [stateResults]="stateResults"></app-proofreader>
+            </div>
+            <!--
             <h2 style="padding-left: 5vw;">Proofreader</h2>
             <p style="margin-right: 5vw;" *ngIf="!contentEditorActive" id="aiMessage">Go ahead and start typing. My AI will help you spot compliance violations!
                <br><br>*Hint: See what happens when you use the word "high"
@@ -65,14 +61,10 @@
                         </ng-template>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </ng-template>
     </div>
 
-    <div class="footer">
-        <p>CONFIDENTIAL</p>
-    </div>
 
-</div>
 
 </div>

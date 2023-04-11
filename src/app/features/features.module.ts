@@ -10,6 +10,7 @@ import { ContenthubComponent } from './contenthub/contenthub.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
+import { ProofreaderComponent } from '../shared/proofreader/proofreader.component';
 
 
 

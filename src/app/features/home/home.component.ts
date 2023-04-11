@@ -1,4 +1,5 @@
 import { Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavMenuComponent } from '../../shared/nav-menu/nav-menu.component';
 
 
@@ -8,26 +9,42 @@ import { NavMenuComponent } from '../../shared/nav-menu/nav-menu.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  teamTab:string = 'none';
-  aboutTab:string = 'block';
-  aboutActive:boolean =true;
-  teamActive:boolean =false;
+  teamTab: string = 'none';
+  aboutTab: string = 'block';
+  aboutActive: boolean = true;
+  teamActive: boolean = false;
 
-  setTab(event:Event, tabName:string) {
+  constructor(private router:Router){}
+
+  handleNav(event: any) {
+    if (event.target.id.includes("home")) {
+      this.router.navigate(['/home']);
+    } else if (event.target.id.includes("brand")) {
+      this.router.navigate(['/brand']);
+    } else if (event.target.id.includes("content")) {
+      this.router.navigate(['/contentHub']);
+    } else if (event.target.id.includes("campaign")) {
+      this.router.navigate(['/campaign']);
+    }
+  }
+
+  setTab(event: Event, tabName: string) {
     let x = Array.from(document.getElementsByClassName('tab') as HTMLCollectionOf<HTMLElement>)
-    if(tabName==='about'){
+    if (tabName === 'about') {
       this.aboutTab = 'block';
       this.teamTab = 'none';
       this.setActiveTabs();
-    }else{
+    } else {
       this.teamTab = 'block';
       this.aboutTab = 'none';
       this.setActiveTabs();
     }
   }
 
-  setActiveTabs(){
+  setActiveTabs() {
     this.teamActive = !this.teamActive;
     this.aboutActive = !this.aboutActive;
   }
+
+
 }

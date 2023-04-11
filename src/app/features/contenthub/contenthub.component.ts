@@ -1,15 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { stateResult, violation } from 'src/models/content-validation.model';
-
-
+import { Gpt4AnalyzeContentService } from 'src/app/services/gpt-4-analyze-content.service';
+import { ToastrService } from 'ngx-toastr';
+import { ProofreaderComponent } from 'src/app/shared/proofreader/proofreader.component';
 
 @Component({
   selector: 'app-contenthub',
   templateUrl: './contenthub.component.html',
-  styleUrls: ['./contenthub.component.css']
+  styleUrls: ['./contenthub.component.css'],
 })
-
-
 
 export class ContenthubComponent {
   @Input() validation = '';
@@ -17,6 +16,9 @@ export class ContenthubComponent {
   @Input() stateResults: stateResult[] = [];
   @Input() contentEditorActive: boolean = false;
   hoveredIndex:any = null;
+  gptResults: string[] = [];
+  lv = true;
+  content:string = '';
 
   tableData = [
     ["Sensii Vape Product Launch", "Press Release", "Matthew Pantell", "2023-02-13", "Draft"],
@@ -32,7 +34,7 @@ export class ContenthubComponent {
     'Content Title', 'Content Type', 'Created By', 'Created Date', 'Status'
   ];
 
-  lv = true;
+  constructor(private gpt4: Gpt4AnalyzeContentService, private toastr:ToastrService) { }
 
   handleCreate(){
     this.lv = false;
@@ -47,18 +49,46 @@ export class ContenthubComponent {
     }
   }*/
 
+  setContent(event:any){
+    this.content = event;
+  }
+  
   setStateResults(event: {state: string; status: string; violations: { code: string; description: string; }[]}[]){
     this.stateResults = event;
     this.contentEditorActive = true;
   }
 
-  onHover(stateResult:{state: string; status: string; violations: { code: string; description: string; }[]}[]){
-
-  }
+  onHover(stateResult:{state: string; status: string; violations: { code: string; description: string; }[]}[]){}
 
   setHoverIndex(i:any, stateResult:any){
-
     this.hoveredIndex = i && stateResult.status==='Violation' ? i : null;
     console.log('HOVER INDEX: ' + i);
+  }
+
+  async analyzeContent(event: any) {
+
+    let contentElement = document.getElementById('content-page');
+    let content = contentElement?.innerText;
+    if (content) {
+      const prompts = this.gpt4.buildPrompts(['IL'], content);
+      //let results = this.gpt4.executePrompts(prompts);
+      //console.log(results);
+
+      this.gpt4.executePromptsFrontend(prompts).then(responses => {
+        console.log(responses[0]);
+        this.gptResults.push(responses[0]);
+      }).catch(err => {
+        console.log(err);
+        this.showError(err.errorMessage.toString());
+      });
+    }
+  }
+
+  showError(errorMessage:string) {
+    this.toastr.error(errorMessage, 'Error', 
+    {
+      timeOut:5000,
+      positionClass: 'toast-top-right',
+    });
   }
 }

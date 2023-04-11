@@ -32,7 +32,7 @@ export class AdhubComponent {
     'Content Title', 'Content Type', 'Created By', 'Created Date', 'Status'
   ];
 
-  lv = false;
+  lv = true;
 
   handleCreate() {
     this.lv = false;
@@ -59,7 +59,7 @@ export class AdhubComponent {
   setHoverIndex(i: any, stateResult: any) {
 
     this.hoveredIndex = i && stateResult.status === 'Violation' ? i : null;
-    console.log('HOVER INDEX: ' + i);
+   // console.log('HOVER INDEX: ' + i);
   }
 
   async analyzeContent(event: any) {
@@ -82,7 +82,7 @@ export class AdhubComponent {
   }
 
   showError(errorMessage:string) {
-    this.toastr.error('Thank you for your interest! We will contact you soon with next steps', 'Success', 
+    this.toastr.error(errorMessage, 'Error', 
     {
       timeOut:5000,
       positionClass: 'toast-top-right',

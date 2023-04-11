@@ -8,6 +8,9 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ContentFormComponent } from './content-form/content-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { LayoutComponent } from './layout/layout.component';
+import { ProofreaderComponent } from './proofreader/proofreader.component';
 
 
 
@@ -24,16 +27,23 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     ContentFormComponent,
-    HttpClientModule
+    HttpClientModule,
+    ToolbarComponent,
+    LayoutComponent
   ],
   exports: [
     NavMenuComponent,
     ListViewComponent,
     ContentPageComponent,
-    ContentFormComponent
+    ContentFormComponent,
+    ToolbarComponent,
+    LayoutComponent,
+    ProofreaderComponent
   ],
   declarations: [
     
+  
+    ProofreaderComponent
   ]
 })
 export class SharedModule { }

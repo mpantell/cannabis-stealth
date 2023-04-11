@@ -10,11 +10,11 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class NavMenuComponent {
 
-  constructor(private router:Router){
+  constructor(private router: Router) {
 
   }
 
-  handleNav(event:any){
+  handleNav(event: any) {
     if (event.target.id.includes("home")) {
       this.router.navigate(['/home']);
     } else if (event.target.id.includes("brand")) {
@@ -24,6 +24,6 @@ export class NavMenuComponent {
     } else if (event.target.id.includes("campaign")) {
       this.router.navigate(['/campaign']);
     }
-    }
+  }
 
 }

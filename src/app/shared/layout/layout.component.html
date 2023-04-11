@@ -1,0 +1,10 @@
+<div class="layout-container">
+    <app-toolbar *ngIf="authedExperience" class="app-toolbar"></app-toolbar>
+    <app-nav-menu *ngIf="authedExperience" class="app-nav-menu"></app-nav-menu>
+    <div *ngIf="authedExperience" class="router-outlet-auth">
+        <router-outlet></router-outlet>
+    </div>
+    <div *ngIf="!authedExperience" class="router-outlet-nonauth">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 
 
-:host {
+  :host {
     margin-top: -10px;
     margin-left:-8px;
     height: 100%;
@@ -42,7 +42,7 @@
     flex: 1;
   }
 
-  .cannasense-toolbar {
+  .toolbar {
     position: sticky;
     top: 0;
     left: 0;

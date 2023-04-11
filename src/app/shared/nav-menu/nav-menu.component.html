@@ -3,36 +3,11 @@
 </head>
 
 <body>
-    <!-- Menu 
-    <div class="container">
-        <ul class="menulist">
-            <li>
-                <a [routerLink]="['/home']">Home</a>
-            </li>
-            <li>
-                <a [routerLink]="['/contentHub']">Content Hub</a>
-            </li>
-            <li>
-                <a [routerLink]="['/adhub']">Campaign Hub</a>
-            </li>
-            <li>
-                Social Hub
-            </li>
-            <li>
-                Packaging Hub
-            </li>
-        </ul>
-    </div>-->
-
     <!-- New Menu -->
     <div class="menu-container">
         <div (click)="handleNav($event)" id="home-div" class="cannasense-feature-nav cannasense-feature-nav-first">
             <img id="home-img" width="45%" alt="home icon" src="../../../assets/home-icon.svg">
             <p id="home-txt">Home</p>
-        </div>
-        <div (click)="handleNav($event)" id="brand-div" class="cannasense-feature-nav">
-            <img id="brand-img" width="45%" alt="brand icon" src="../../../assets/brand-icon.svg">
-            <p id="brand-txt">Brand</p>
         </div>
         <div (click)="handleNav($event)" id="content-div" class="cannasense-feature-nav">
             <img id="content-img" width="45%" alt="content icon" src="../../../assets/content-icon.svg">
@@ -41,6 +16,10 @@
         <div (click)="handleNav($event)" id="campaign-div" class="cannasense-feature-nav cannasense-feature-nav-last campaign">
             <img id="campaign-img" width="45%" alt="campaign icon" src="../../../assets/loyalty-icon.svg">
             <p id="campaign-txt">Campaigns</p>
+        </div>
+        <div (click)="handleNav($event)" id="brand-div" class="cannasense-feature-nav">
+            <img id="brand-img" width="45%" alt="brand icon" src="../../../assets/brand-icon.svg">
+            <p id="brand-txt">Brand</p>
         </div>
     </div>
 </body>
