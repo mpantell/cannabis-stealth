@@ -22,7 +22,9 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -30,8 +32,4 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-  }
-  
 }

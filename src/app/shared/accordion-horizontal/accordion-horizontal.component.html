@@ -1,0 +1,32 @@
+<div class="accordion horizontal">
+    <ul>
+        <li>
+            <input type="radio" id="vert-1" name="vert-accordion" checked="checked" />
+            <label class="vert" for="vert-1">Geography</label>
+            <div class="content">
+                <app-segment-selector [section]="'geography'"></app-segment-selector>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="vert-2" name="vert-accordion" />
+            <label class="vert" for="vert-2">Demographics</label>
+            <div class="content">
+                <app-segment-selector [section]="'demographics'"></app-segment-selector>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="vert-3" name="vert-accordion" />
+            <label class="vert" for="vert-3">Behavioral</label>
+            <div class="content">
+                <h3 style="margin-left:10px">Segment by Behavior</h3>
+                <p style="margin: 10px">
+                    Purchasing Preference: Online / Delivery / In Store<br><br>
+                    Lifestyle Tags: <br><br>
+                    Consumption Level: <br><br>
+                    Product Preference Tags: <br><br>
+                    Cannabis Sentiment Tags: <br><br>
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>

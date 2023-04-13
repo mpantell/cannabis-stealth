@@ -1,0 +1,79 @@
+
+body{
+  position: fixed;
+  margin-top: 8%;
+}
+
+.menulist li:hover {
+  background-color: #0C2521;
+  font-family: 'Denk One';
+  cursor: pointer;
+  color: white;
+  font-size: 1.2em;
+  box-shadow: 0 px 16px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+a:visited {
+  color: inherit;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  padding: 10% 10%;
+}
+
+.menu-container {
+  left:0;
+  position:fixed;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 70.5px;
+  min-width: 70.5px;
+}
+
+
+.cannasense-feature-nav {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-top: .075rem solid rgba(255, 255, 255, .5);
+  border-bottom: .075rem solid rgba(255, 255, 255, .5);
+  width: 100%;
+  cursor: pointer;
+}
+
+.cannasense-feature-nav img,
+.cannasense-feature-nav p {
+  color: white;
+  opacity: .5;
+  margin: 0;
+}
+
+.cannasense-feature-nav p {
+  padding-bottom: .5em;
+  font-size: xx-small;
+}
+
+.cannasense-feature-nav img {
+  padding-top: .5em;
+}
+
+.cannasense-feature-nav-first {
+  border-top: .15rem solid rgba(255, 255, 255, .5) !important;
+}
+.cannasense-feature-nav-last {
+  border-bottom: .15rem solid rgba(255, 255, 255, .5) !important;
+}
+
+.cannasense-feature-nav:hover{
+  background-color: #0C2521;
+}
+
+.campaign p {
+  margin-left:.6em !important;
+}

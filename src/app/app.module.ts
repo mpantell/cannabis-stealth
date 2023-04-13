@@ -12,13 +12,20 @@ import { ListViewComponent } from './shared/list-view/list-view.component';
 
 import { FeaturesModule } from './features/features.module';
 import { SharedModule } from './shared/shared.module';
-import { FirebaseApps, initializeApp,provideFirebaseApp, getApp } from '@angular/fire/app';
-import { environment } from '../environments/environment.dev';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { FirebaseApps, initializeApp, provideFirebaseApp, getApp } from '@angular/fire/app';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { Database } from 'firebase/database';
+//import { Database } from 'firebase/database';
+import { Firestore } from 'firebase/firestore';
+import { app, firebaseConfig, firestore, appName } from './firebase';
+import { getFirestore } from 'firebase/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import 'reflect-metadata';
+
 
 @NgModule({
   declarations: [
@@ -28,22 +35,30 @@ import { Database } from 'firebase/database';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
     FeaturesModule,
     SharedModule,
     QuillModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideDatabase(() => getDatabase()),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebaseConfig, appName),
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 10000
+    }
+
+    )
   ],
   providers: [
-    {provide: Database, useFactory: getDatabase},
-    {provide: FirebaseApps, useFactory: () => [getApp()]}
+    {provide: Firestore, useValue: firestore}
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
-  
 }
+
+/*AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),*/

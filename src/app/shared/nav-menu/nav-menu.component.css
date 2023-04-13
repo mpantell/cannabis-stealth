@@ -1,47 +1,71 @@
 
+body{
+  margin-top: 20%;
+}
 
-  .container {
-    margin: 10px;
-    margin-top: 0px;
-  }
+.menu-container {
+  left:0;
+  position:fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 70.5px;
+  
+}
 
-  .menulist{
-    padding:0px;
-    margin: 0px;
-    font-size: 1.2vw;
-    border: 1px;
-    border-color: #C2882B;
-    font-family: 'Belleza', sans-serif;
-  }
 
-  li {
-    padding: 10px;
-    border: 1px solid #c2882b;
-    border-radius: 10px;
-    text-align: center;
-    margin: 10px;
-    list-style: none;
-    color: #0C2521;
-    background-color: #C2882B;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.204), 0 6px 20px 0 rgba(0, 0, 0, 0.394);
-  }
+.cannasense-feature-nav {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: .15rem solid rgba(255, 255, 255, .5);
+  border-left:none;
+  border-top-right-radius:  5px;
+  border-bottom-right-radius: 5px;
+  width: 85px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
-  .menulist li:hover{
-    background-color: #0C2521;
-    font-family: 'Denk One';
-    cursor: pointer;
-    color: white;
-    font-size: 1.2em;
-    box-shadow: 0 px 16px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
-  }
+}
 
-  a:visited{
-    color: inherit;
-  }
+.cannasense-feature-nav img,
+.cannasense-feature-nav p {
+  color: white;
+  font-weight: 600;
+  opacity: .5;
+  margin: 0;
+}
 
-  a{
-    color: #333;
-    text-decoration: none;
-    padding: 10% 10%;
-  }
+.cannasense-feature-nav:not(:last-child) {
+  margin-bottom: 10px;
+}
+.cannasense-feature-nav p {
+  padding-bottom: .5em;
+  font-size: small;
+  padding-right: .5em;
+}
 
+.cannasense-feature-nav img {
+  padding-top: .5em;
+}
+
+
+.cannasense-feature-nav:hover{
+  background-color: #0C2521;
+}
+
+.campaign p {
+  margin-left:.6em !important;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  padding: 10% 10%;
+}

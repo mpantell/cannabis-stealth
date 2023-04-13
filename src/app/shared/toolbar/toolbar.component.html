@@ -1,0 +1,25 @@
+<head>
+    <link href="./toolbar.component.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <!-------------------------TOOLBAR------------------------->
+    <div class="toolbar-container">
+        <div id="cannasense-toolbar" class="cannasense-toolbar">
+            <a [routerLink]="['home']">
+                <img id="logo" style="margin:.5em 0em 0em 3em;" alt="Angular Logo"
+                    src="../../../assets/logo/newLogo.png" />
+            </a>
+            <a id="login" [routerLink]="['/login']">
+                <div class="menu">
+                    <img id="logout" style="margin:0px;" alt="logout" src="../../../assets/logout.svg" />
+                    <p>logout</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

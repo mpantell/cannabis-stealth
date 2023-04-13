@@ -2,7 +2,7 @@
   "functions": [
     {
       "source": "functions",
-      "codebase": "default",
+      
       "ignore": [
         "node_modules",
         ".git",
@@ -26,6 +26,7 @@
     {
       "target": "production",
       "public": "dist/cannabis-stealth",
+      "project_id": "cannasense-software",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -36,11 +37,17 @@
           "source": "**",
           "destination": "/index.html"
         }
-      ]
+      ],
+      "config":{
+        "firebase": {
+          "firebseConfigFile": "firebase.prod.config.js"
+        }
+      }
     },
     {
       "target": "development",
       "public": "dist/cannabis-stealth",
+      "project_id": "cannabis-stealth",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -51,7 +58,14 @@
           "source": "**",
           "destination": "/index.html"
         }
-      ]
+      ],
+      "config":{
+        "config":{
+          "firebase": {
+            "firebseConfigFile": "firebase.dev.config.js"
+          }
+        }
+      }
     }
   ],
   "storage": {
@@ -84,8 +98,7 @@
     },
     "ui": {
       "enabled": true
-    },
-    "singleProjectMode": true
+    }
   },
   "remoteconfig": {
     "template": "remoteconfig.template.json"

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import Quill from 'quill';
 import { ContentFormComponent } from '../content-form/content-form.component';
-import { AnalyzeContentService } from 'src/app/analyze-content.service';
+import { AnalyzeContentService } from 'src/app/services/analyze-content.service';
 import * as firebase from 'firebase/app';
 import * as fbdb from 'firebase/database';
 import { environment } from 'src/environments/environment.dev';
@@ -52,6 +52,7 @@ export class ContentPageComponent {
   content:any;
   paViolation = false;
   @Output() onAnalyze = new EventEmitter<{state: string; status: string; violations: { code: string; description: string; }[]}[] >;
+  @Output() onInput = new EventEmitter<string>;
   stateResults: { state: string, status: string, violations: { code: string, description: string }[] }[] = [];
 
 
@@ -69,12 +70,13 @@ export class ContentPageComponent {
             ['image', 'code-block']
           ]
         },
-        placeholder: 'Componse your content here...',
+        placeholder: 'Compose your content here...',
         theme: 'snow'  // or 'bubble'
       });
   
-      quill.on('text-change',this.handleInput.bind(this));
-      this.stateResults = this.sample;
+      quill.on('text-change',(this.handleInput.bind(this)));
+      console.log(quill);
+      //this.stateResults = this.sample;
     } catch(error){
       console.log('Error: ' + error);
     }
@@ -93,12 +95,14 @@ export class ContentPageComponent {
   }
 
   async handleInput(delta: any, oldDelta: any, source: any) {
-    if (source !== 'user') {
-      return;
-    }
+    try {
       const content = document.querySelector('#editor-container .ql-editor')?.textContent ?? '';
       const analysisResult = await this.analyzeContentService.analyzeContent(content);
+      this.onInput.emit(content);
       this.onAnalyze.emit(analysisResult);      
+    }catch(error){
+      console.log(error);
+    }
 
   }
 

@@ -45,3 +45,13 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+#Environment Variables
+.env
+
+#Firebase Secure Information
+firebase.prod.config.js
+firebase.dev.config.js
+firebase-config.js
+
+src/environments/environment.ts

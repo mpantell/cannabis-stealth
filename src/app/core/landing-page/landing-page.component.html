@@ -3,37 +3,39 @@
 </head>
 
 <body>
-<div class="sideContainer">
-    <img id="logo" style="margin:0px;"
-        width="60%"
-        alt="Angular Logo"
-        src="../../../assets/logo/newLogo.png"
-    />
-    <div class="buttonContainer">
-        <button class="button-28" role="button" (click)="handleFormToggle()">Request a Demo</button>
-    </div>
-</div>
-<div class="container">
-    <div class="pStatement">
-        <h1>Engage customers quickly and compliantly with cannasense!</h1>
-    </div>
-    <div *ngIf="noform===true; else elseBlock">
-        <h3 style="text-align: center;">cannasense can help you:</h3>
-        <div class="features">
-            <ul>
-                <li>Collaborate and approve outbound emails/SMS campaigns faster</li>
-                <li>Proofread website content for state compliance</li>
-                <li>Analyze Packaging & Labelling for State Regulatory Requirements</li>
-                <li>Score Risk of Social Posts</li>
-            </ul>
+    <a [routerLink]="['/login']">
+        <div class="menu">
+            <img id="login" style="margin:0px;" alt="Login" src="../../../assets/login.svg" />
+            <p>login</p>
         </div>
-        <div class="buttonContainer2">
+    </a>
+    <div class="sideContainer">
+        <img id="logo" style="margin:0px;" width="60%" alt="Angular Logo" src="../../../assets/logo/newLogo.png" />
+        <div class="buttonContainer">
             <button class="button-28" role="button" (click)="handleFormToggle()">Request a Demo</button>
         </div>
     </div>
-    <ng-template #elseBlock>
-        <app-sign-up (backevent)="handleFormToggle()"></app-sign-up>
-    </ng-template>
-</div>
+    <div class="container">
+        <div class="pStatement">
+            <h1>Intelligent Cannabis Marketing <br>Starts Here!</h1>
+        </div>
+        <div *ngIf="noform===true; else elseBlock">
+            <h3 style="text-align: center;">cannasense can help you:</h3>
+            <div class="features">
+                <ul>
+                    <li>Launch new products with compliance and agility</li>
+                    <li>Engage existing customers more meaningfully</li>
+                    <li>Reach and acquire new customers</li>
+                    <!--<li>Score Violation Risks of Social Posts</li>-->
+                </ul>
+            </div>
+            <div class="buttonContainer2">
+                <button class="button-28" role="button" (click)="handleFormToggle()">Request a Demo</button>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <app-sign-up (backevent)="handleFormToggle()"></app-sign-up>
+        </ng-template>
+    </div>
 
 </body>

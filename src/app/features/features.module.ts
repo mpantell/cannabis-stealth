@@ -9,19 +9,25 @@ import { ContentPageComponent } from '../shared/content-page/content-page.compon
 import { ContenthubComponent } from './contenthub/contenthub.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
+import { HttpClientModule } from '@angular/common/http';
+import { ProofreaderComponent } from '../shared/proofreader/proofreader.component';
+import { CampaignhubComponent } from './campaignhub/campaignhub.component';
+import { BrandhubComponent } from './brandhub/brandhub.component';
+
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent, AdhubComponent, ContenthubComponent],
+  declarations: [HomeComponent, AdhubComponent, ContenthubComponent, CampaignhubComponent, BrandhubComponent],
   imports: [
     CommonModule,
     SharedModule,
     NavMenuComponent,
     ListViewComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [HomeComponent]
 })

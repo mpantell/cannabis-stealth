@@ -1,0 +1,59 @@
+
+
+.layout-container {
+    top:0;
+    left:0;
+    position: fixed;
+    height: 100%;
+    display: flex;
+}
+
+.app-toolbar {
+    top:0;
+    min-width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+.app-nav-menu {
+    left: 0;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 70.5px;
+    min-width: 70.5px;
+}
+
+.router-outlet-auth {
+    box-shadow: 0px 25px 25px rgba(0, 0, 0, 0.2);
+    margin-top: 94px;
+    margin-left: 30px;
+    width: 94vw;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.router-outlet-nonauth {
+    box-shadow: 0px 25px 25px rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+
+}
+
+@media screen and (max-width: 1700px){
+    .router-outlet{
+        width: 93vw;
+    }
+}
+@media screen and (max-width: 1450px){
+    .router-outlet{
+        width: 92vw;
+    }
+}
+    
+
+
+
+
+
