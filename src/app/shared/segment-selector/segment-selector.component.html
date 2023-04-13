@@ -1,0 +1,45 @@
+<head>
+
+</head>
+
+
+<div class="segmentor" *ngIf="section==='geography'" id="geography">
+    <h3>Segment By Geography</h3>
+    <label for="state">State</label>
+    <select name="state" id="state-selector">
+        <option value="CA">CA</option>
+        <option value="IL">IL</option>
+        <option value="MI">MI</option>
+    </select><br>
+    <label for="zip">Postal Code</label>
+    <input type="text" id="zipInput" name="zip"><br>
+    <label for="store">Store</label>
+    <select name="store" id="store-selector">
+        <option value="store1">Store 1</option>
+        <option value="store2">Store 2</option>
+        <option value="store3">Store 3</option>
+    </select><br>
+</div>
+
+<div class="segmentor" *ngIf="section==='demographics'" id="demographics">
+    <h3>Segment By Demographics</h3>
+    <fieldset>
+        <legend>Gender</legend>
+        <label>
+            <input type="checkbox" name="gender[]" value="male" checked>Male
+        </label>
+        <label>
+            <input type="checkbox" name="gender[]" value="female" checked>Female
+        </label>
+        <label>
+            <input type="checkbox" name="gender[]" value="other" checked>Other
+        </label>
+    </fieldset>
+    <label style="margin-top:10px" for="patientType">Patient Type</label>
+    <select name="patientType" id="patient-selector">
+        <option value="store1">Medical</option>
+        <option value="store2">Recreational</option>
+    </select><br>
+    <label for="age">Age Range</label>
+<input type="range" id="age" name="age" min="18" max="150" step="1">
+</div>

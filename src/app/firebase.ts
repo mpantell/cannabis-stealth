@@ -1,4 +1,4 @@
-import { prodConfig, devConfig, targetEnvironment } from '../environments/environment';
+import { prodConfig, devConfig, emulatorConfig, targetEnvironment } from '../environments/environment';
 import { initializeApp } from 'firebase/app';
 import { Firestore, getFirestore } from "firebase/firestore";
 import { FirebaseApp } from '@angular/fire/app';
@@ -9,7 +9,11 @@ let db:Firestore;
 let firebaseConfig:any;
 let appName:string;
 
-if (targetEnvironment === "prod") {
+
+if(targetEnvironment==="emulator"){
+    appName = appName = 'cannabis-stealth-app';
+    firebaseConfig = emulatorConfig;
+} else if (targetEnvironment === "prod") {
     appName = 'cannasense production';
     firebaseConfig = prodConfig;
 } else {

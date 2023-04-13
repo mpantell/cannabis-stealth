@@ -1,0 +1,69 @@
+/* Styling for the form container */
+.segmentor {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 20px 22px 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+  }
+  
+  /* Styling for the form headings */
+  h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the form labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Styling for the form inputs and select */
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 1em;
+  }
+  
+  /* Styling for the form submit button */
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  /* Styling for the form submit button on hover */
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  

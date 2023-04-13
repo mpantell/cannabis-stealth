@@ -3,6 +3,18 @@ const path = require('path');
 module.exports = {
   // your other Webpack config options here
 
+  module: {
+    rules:[
+      {test: /\.scss$/,
+        use:[
+          'style-loader',
+          'css-loader',
+          'resolve-url-loader',
+          'saas-loader',
+          'postcss-loader'
+      ]}
+    ]
+  },
   resolve: {
     fallback: {
       "os": require.resolve("os-browserify/browser"),

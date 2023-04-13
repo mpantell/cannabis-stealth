@@ -20,11 +20,11 @@ export class HomeComponent {
     if (event.target.id.includes("home")) {
       this.router.navigate(['/home']);
     } else if (event.target.id.includes("brand")) {
-      this.router.navigate(['/brand']);
+      this.router.navigate(['/brandHub']);
     } else if (event.target.id.includes("content")) {
       this.router.navigate(['/contentHub']);
     } else if (event.target.id.includes("campaign")) {
-      this.router.navigate(['/campaign']);
+      this.router.navigate(['/campaignHub']);
     }
   }
 

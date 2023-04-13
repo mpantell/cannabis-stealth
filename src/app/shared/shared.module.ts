@@ -11,14 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ProofreaderComponent } from './proofreader/proofreader.component';
+import { AccordionHorizontalComponent } from './accordion-horizontal/accordion-horizontal.component';
+import { SegmentSelectorComponent } from './segment-selector/segment-selector.component';
+import { FabricCanvasComponent } from './fabric-canvas/fabric-canvas.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 
 
 
 @NgModule({
   imports: [
-    NavMenuComponent, 
-    CommonModule, 
+    NavMenuComponent,
+    CommonModule,
     ListViewComponent,
     FormsModule,
     ContentPageComponent,
@@ -38,12 +42,15 @@ import { ProofreaderComponent } from './proofreader/proofreader.component';
     ContentFormComponent,
     ToolbarComponent,
     LayoutComponent,
-    ProofreaderComponent
+    ProofreaderComponent,
+    AccordionHorizontalComponent
   ],
   declarations: [
-    
-  
-    ProofreaderComponent
+    ProofreaderComponent,
+    AccordionHorizontalComponent,
+    SegmentSelectorComponent,
+    FabricCanvasComponent,
+    ProductFormComponent
   ]
 })
 export class SharedModule { }
