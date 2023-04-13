@@ -58,6 +58,13 @@ h1 {
 }
 
 
+#create{
+    float: right;
+    margin-right: 79px;
+
+}
+
+
 ul {
     padding: .2vw;
 }
@@ -104,6 +111,7 @@ ul {
     overflow: auto;
 }
 
+
 @media screen and (max-width: 1250px) {
     .right{
         max-width: 100%;
@@ -111,3 +119,4 @@ ul {
         margin-left: 0px;
     }
 }
+

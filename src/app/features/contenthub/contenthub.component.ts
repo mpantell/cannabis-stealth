@@ -65,6 +65,7 @@ export class ContenthubComponent {
     console.log('HOVER INDEX: ' + i);
   }
 
+
   async analyzeContent(event: any) {
 
     let contentElement = document.getElementById('content-page');
@@ -91,4 +92,5 @@ export class ContenthubComponent {
       positionClass: 'toast-top-right',
     });
   }
+
 }
