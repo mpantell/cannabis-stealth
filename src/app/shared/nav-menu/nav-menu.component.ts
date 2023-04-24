@@ -23,6 +23,8 @@ export class NavMenuComponent {
       this.router.navigate(['/contentHub']);
     } else if (event.target.id.includes("campaign")) {
       this.router.navigate(['/campaignHub']);
+    } else if (event.target.id.includes("product")){
+      this.router.navigate(['/products']);
     }
   }
 

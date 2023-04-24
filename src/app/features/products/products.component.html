@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="main">
+        <div *ngIf="lv; else elseBlock">
+            <h1>Products</h1>
+            <div class="listContainer" *ngIf="(productData$ | async) as products">
+                <app-list-view [deleteAccess]="deleteAccess" [headers]="headers" [data]="tableData" (deleteEvent)="handleDelete($event)" (openEvent)="handleOpen($event)"></app-list-view>
+                <button id="create" (click)="handleCreate()">Create New</button>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <app-product-form (dbSuccess)="handleSuccess()" [isEditMode]="isEditMode" [productRecord]="productRecord"></app-product-form>
+        </ng-template>
+    </div>
+</div>
+
+
+<!--<div class="container">
+    <div class="main">
+        <div *ngIf="lv; else elseBlock">
+            <h1>Products</h1>
+            <div class="listContainer" *ngIf="(productData$ | async) as products">
+                <app-list-view [headers]="headers" [data]="tableData"></app-list-view>
+                <button id="create" (click)="handleCreate()">Create New</button>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <app-product-form></app-product-form>
+        </ng-template>
+    </div>
+</div>-->

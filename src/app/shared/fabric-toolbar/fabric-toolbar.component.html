@@ -1,0 +1,21 @@
+<div class="toolbar">
+    <label for="font">Font:</label>
+    <select id="font" (change)="emitFormat($event)">
+        <option value="Arial">Arial</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Times New Roman">Times New Roman</option>
+    </select>
+
+    <label for="size">Size:</label>
+    <select id="size" (change)="emitFormat($event)">
+        <option value="12">12</option>
+        <option value="14">14</option>
+        <option value="16">16</option>
+    </select>
+
+    <button id="bold" (click)="emitFormat($event)">Bold</button>
+    <button id="italic" (click)="emitFormat($event)">Italic</button>
+
+    <input id="color" type="color" (click)="emitFormat($event)"> 
+    <p style="margin:0;padding:0;margin-left:-20px;font-size: x-small;">Select color then click element</p>
+</div>

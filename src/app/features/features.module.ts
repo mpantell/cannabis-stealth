@@ -13,13 +13,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProofreaderComponent } from '../shared/proofreader/proofreader.component';
 import { CampaignhubComponent } from './campaignhub/campaignhub.component';
 import { BrandhubComponent } from './brandhub/brandhub.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductFormComponent } from '../shared/product-form/product-form.component';
 
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent, AdhubComponent, ContenthubComponent, CampaignhubComponent, BrandhubComponent],
+  declarations: [HomeComponent, AdhubComponent, ContenthubComponent, CampaignhubComponent, BrandhubComponent, ProductsComponent],
   imports: [
     CommonModule,
     SharedModule,

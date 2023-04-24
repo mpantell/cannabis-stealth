@@ -10,10 +10,12 @@ import { BrandhubComponent } from './features/brandhub/brandhub.component';
 import { CampaignhubComponent } from './features/campaignhub/campaignhub.component';
 import { ContenthubComponent } from './features/contenthub/contenthub.component';
 import { HomeComponent } from './features/home/home.component';
+import { ProductsComponent } from './features/products/products.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AccordionHorizontalComponent } from './shared/accordion-horizontal/accordion-horizontal.component';
 import { ContentPageComponent } from './shared/content-page/content-page.component';
 import { FabricCanvasComponent } from './shared/fabric-canvas/fabric-canvas.component';
+import { FabricToolbarComponent } from './shared/fabric-toolbar/fabric-toolbar.component';
 import { ProductFormComponent } from './shared/product-form/product-form.component';
 
 
@@ -30,7 +32,9 @@ const routes: Routes = [
   { path: 'campaignHub', component: CampaignhubComponent},
   { path: 'canvas', component: FabricCanvasComponent}, // remove
   { path: 'product-form', component: ProductFormComponent}, //remove
-  { path: 'brandHub', component: BrandhubComponent}
+  { path: 'brandHub', component: BrandhubComponent},
+  { path: 'fabricToolbar', component: FabricToolbarComponent},
+  { path: 'products', component: ProductsComponent} 
 
 ];
 

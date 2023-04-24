@@ -91,6 +91,7 @@ h3 {
 
 .buttonContainer2 {
     width: 100%;
+    min-width:400px;
     display: flex;
     align-items: center;
     justify-content: center;

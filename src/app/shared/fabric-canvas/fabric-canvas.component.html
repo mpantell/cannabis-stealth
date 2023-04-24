@@ -1,2 +1,12 @@
-
- 
+<div class="container">
+    <div class="subcontainer1">
+        <app-fabric-toolbar (decorate)="decorate($event)" (colorSelected)="recolor($event)" (fontSelected)="refont($event)"
+            (sizeSelected)="resize($event)"></app-fabric-toolbar>
+        <div class="canvas-element-container">
+            <canvas #canvasElement id="canvasElement"></canvas>
+        </div>
+    </div>
+    <div class="widget-menu">
+        <app-fabric-widget-menu></app-fabric-widget-menu>
+    </div>
+</div>

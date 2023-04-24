@@ -1,4 +1,5 @@
 <table>
+  <ng-container *ngIf="deleteAccess">
     <thead>
       <tr>
         <th *ngFor="let header of headers">{{ header }}</th>
@@ -6,8 +7,36 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of data; index as x" [class]="x % 2 === 0 ? 'even-row' : 'odd-row' ">
-        <td *ngFor="let cell of row; index as i" [class]="i === 0 ? 'link' : '' ">{{ cell }}</td>
+        <ng-container *ngFor="let cell of row; index as i">
+          <span *ngIf="i===0" hidden="true">{{cell}}</span>
+          <td *ngIf="i === 1" [class]="'link'" (click)="emitOpen($event, row)">
+            {{cell}}
+          </td>
+          <td *ngIf="i > 1">
+            {{cell}}
+          </td>
+        </ng-container>
+        <td>
+          <button (click)="emitDelete($event, row)">Delete</button>
+        </td>
       </tr>
     </tbody>
+  </ng-container>
+  <ng-container *ngIf="!deleteAccess">
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data; index as x" [class]="x % 2 === 0 ? 'even-row' : 'odd-row' ">
+        <ng-container *ngFor="let cell of row; index as i">
+          <span *ngIf="i===0" hidden="true">{{cell}}</span>
+          <td *ngIf="i !== 0" [class]="i===1 ? 'link': ''">
+            {{cell}}
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </ng-container>
 </table>
-  

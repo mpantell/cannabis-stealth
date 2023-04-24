@@ -15,6 +15,9 @@ import { AccordionHorizontalComponent } from './accordion-horizontal/accordion-h
 import { SegmentSelectorComponent } from './segment-selector/segment-selector.component';
 import { FabricCanvasComponent } from './fabric-canvas/fabric-canvas.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { FabricToolbarComponent } from './fabric-toolbar/fabric-toolbar.component';
+import { FabricWidgetMenuComponent } from './fabric-widget-menu/fabric-widget-menu.component';
+import { SvgUploadComponent } from './svg-upload/svg-upload.component';
 
 
 
@@ -43,14 +46,18 @@ import { ProductFormComponent } from './product-form/product-form.component';
     ToolbarComponent,
     LayoutComponent,
     ProofreaderComponent,
-    AccordionHorizontalComponent
+    AccordionHorizontalComponent,
+    ProductFormComponent
   ],
   declarations: [
     ProofreaderComponent,
     AccordionHorizontalComponent,
     SegmentSelectorComponent,
     FabricCanvasComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    FabricToolbarComponent,
+    FabricWidgetMenuComponent,
+    SvgUploadComponent
   ]
 })
 export class SharedModule { }

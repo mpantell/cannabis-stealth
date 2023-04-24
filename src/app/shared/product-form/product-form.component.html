@@ -1,68 +1,72 @@
 <div class="container">
-    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" [ariaDisabled]="">
 
         <h1>Product Information</h1>
         <div class="product-description">
             <div class="form-field">
                 <label for="productName">Product Name:</label><br>
-                <input type="text" id="productName" formControlName="productName">
+                <input type="text" id="productName" formControlName="productName" [disabled]="!isEditMode">
             </div>
             <div class="form-field">
                 <label for="productDescription">Product Description:</label><br>
-                <input type="text" id="productDescription" formControlName="productDescription">
+                <input type="text" id="productDescription" [disabled]="!isEditMode"
+                    formControlName="productDescription">
             </div>
             <div class="form-field">
                 <label for="netWeight">Net Weight (g):</label><br>
-                <input type="number" id="netWeight" formControlName="netWeight">
+                <input type="number" id="netWeight" [disabled]="!isEditMode" formControlName="netWeight">
             </div>
 
             <div class="form-field">
                 <label for="totalCannabinoids">Total Cannabinoids:</label><br>
-                <input type="number" id="totalCannabinoids" formControlName="totalCannabinoids">
+                <input type="number" id="totalCannabinoids" [disabled]="!isEditMode"
+                    formControlName="totalCannabinoids">
             </div>
 
             <div class="form-field percentage">
                 <label for="thcConcentration">THC Concentration:</label><br>
-                <input type="number" id="thcConcentration" formControlName="thcConcentration">
+                <input type="number" id="thcConcentration" [disabled]="!isEditMode" formControlName="thcConcentration">
                 <span style="margin-left:-45px">%</span>
             </div>
 
             <div class="form-field percentage">
                 <label for="cbdConcentration">CBD Concentration:</label><br>
-                <input type="number" id="cbdConcentration" formControlName="cbdConcentration">
+                <input type="number" id="cbdConcentration" [disabled]="!isEditMode" formControlName="cbdConcentration">
                 <span style="margin-left:-45px">%</span>
             </div>
 
             <div class="form-field percentage">
                 <label for="thcaConcentration">THCA Concentration:</label><br>
-                <input type="number" id="thcaConcentration" formControlName="thcaConcentration">
+                <input type="number" id="thcaConcentration" [disabled]="!isEditMode"
+                    formControlName="thcaConcentration">
                 <span style="margin-left:-45px">%</span>
             </div>
 
             <div class="form-field percentage">
                 <label for="cbdaConcentration">CBDA Concentration:</label><br>
-                <input type="number" id="cbdaConcentration" formControlName="cbdaConcentration">
+                <input type="number" id="cbdaConcentration" [disabled]="!isEditMode"
+                    formControlName="cbdaConcentration">
                 <span style="margin-left:-45px">%</span>
             </div>
         </div>
 
         <h1>Tracking Information</h1>
         <div class="tracking-information">
-            <div class="form-field">
+            <!--<div class="form-field">
                 <label for="soldByName">Sold By Name:</label><br>
-                <input type="text" id="soldByName" formControlName="soldByName">
+                <input type="text" id="soldByName" [disabled]="!isEditMode" formControlName="soldByName">
             </div>
             <div class="form-field">
                 <label for="soldByAddress">Sold By Address:</label><br>
-                <input type="text" id="soldByAddress" formControlName="soldByAddress">
-            </div>
+                <input type="text" id="soldByAddress" [disabled]="!isEditMode" formControlName="soldByAddress">
+            </div>-->
             <div class="form-field">
                 <label for="producedByName">Produced By Name:</label><br>
-                <input type="text" id="producedByName" formControlName="producedByName">
+                <input type="text" id="producedByName" [disabled]="!isEditMode" formControlName="producedByName">
             </div>
             <div class="form-field">
                 <label for="producedByAddress">Produced By Address:</label><br>
-                <input type="text" id="producedByAddress" formControlName="producedByAddress">
+                <input type="text" id="producedByAddress" [disabled]="!isEditMode" formControlName="producedByAddress">
             </div>
         </div>
 
@@ -71,26 +75,31 @@
         <div class="quality-control">
             <div class="form-field">
                 <label for="testedBy">Tested By:</label><br>
-                <input type="text" id="testedBy" formControlName="testedBy">
+                <input type="text" id="testedBy" [disabled]="!isEditMode" formControlName="testedBy">
             </div>
 
             <div class="form-field">
                 <label for="testingMethodologyStatement">Testing Methodology Statement</label><br>
-                <input type="text" id="testedBy" formControlName="testingMethodologyStatement">
+                <input type="text" id="testedBy" [disabled]="!isEditMode" formControlName="testingMethodologyStatement">
             </div>
+            <!--
             <div class="form-field">
                 <label for="harvestDate">Date of Harvest:</label><br>
-                <input type="date" id="harvestDate" formControlName="harvestDate">
+                <input type="date" id="harvestDate" [disabled]="!isEditMode" formControlName="harvestDate">
             </div>
             <div class="form-field">
                 <label for="packageDate">Package Date:</label><br>
-                <input type="date" id="packageDate" formControlName="packageDate">
+                <input type="date" id="packageDate" [disabled]="!isEditMode" formControlName="packageDate">
             </div>
             <div class="form-field">
                 <label for="useBy">Use By:</label><br>
-                <input type="date" id="useBy" formControlName="useBy"><br>
-            </div>
+                <input type="date" id="useBy" [disabled]="!isEditMode" formControlName="useBy"><br>
+            </div>-->
         </div>
-        <button type="submit">Submit</button>
+        <button *ngIf="isEditMode" type="submit">Submit</button>
+        <div class="asset-buttons" *ngIf="!isEditMode">
+            <button id="newPackaging" type="submit" (click)="handleNavigation($event)">Create New Packaging</button>
+            <button id="newContent" type="submit" (click)="handleNavigation($event)">Create New Content</button>
+        </div>
     </form>
 </div>
