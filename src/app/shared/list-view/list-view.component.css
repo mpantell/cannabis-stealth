@@ -91,3 +91,22 @@ td.link:hover {
     padding-left: 10px;
   }
 }
+
+.delete-button {
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: x-small;
+  font-weight: bold;
+  text-align: center;
+  background-color: #960000;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 4px;
+}
+
+.delete-button:hover {
+  background-color: #fff;
+  color: #960000;
+}

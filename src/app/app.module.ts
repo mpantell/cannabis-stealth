@@ -25,6 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import 'reflect-metadata';
+import { StatesService } from './services/states.service';
+
 
 
 @NgModule({
@@ -48,15 +50,15 @@ import 'reflect-metadata';
     ToastrModule.forRoot({
       timeOut: 10000
     }
-
     )
   ],
   providers: [
-    {provide: Firestore, useValue: firestore}
+    { provide: Firestore, useValue: firestore },
+    StatesService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 }
 
 /*AngularFireModule.initializeApp(environment.firebase),

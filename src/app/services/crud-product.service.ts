@@ -29,7 +29,12 @@ export class CrudProductService {
 
   updateProduct(existingProduct: Product): Promise<void> {
     const db = this.firestore.collection('products');
-    return db.doc(existingProduct.id).update(existingProduct);
+    try {
+      return db.doc(existingProduct.id).update(existingProduct);
+    } catch (error) {
+      console.error('Error updating product:', error);
+      throw error;
+    }
   }
 
   deleteProduct(existingProductId: string): Promise<void> {

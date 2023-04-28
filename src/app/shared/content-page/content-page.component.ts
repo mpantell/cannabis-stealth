@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import Quill from 'quill';
@@ -8,19 +8,10 @@ import { AnalyzeContentService } from 'src/app/services/analyze-content.service'
 import * as firebase from 'firebase/app';
 import * as fbdb from 'firebase/database';
 import { environment } from 'src/environments/environment.dev';
-import { contentAsset } from 'src/models/content-asset.model';
+import { ContentAsset, ContentType } from 'src/models/content-asset.model';
+import { CrudContentService } from 'src/app/services/crud-content.service';
+import { QuilEditorComponent } from '../quil-editor/quil-editor.component';
 
-interface Firebase {
-  database: () => fbdb.Database;
-}
-
-const firebaseConfig = environment.firebase;
-
-firebase.initializeApp(firebaseConfig);
-
-const fbData: Firebase = {
-  database: () => fbdb.getDatabase(),
-};
 
 @Component({
   standalone: true,
@@ -31,9 +22,10 @@ const fbData: Firebase = {
     CommonModule,
     FormsModule,
     QuillModule,
-    ContentFormComponent
+    ContentFormComponent,
+    QuilEditorComponent
   ],
-  providers: [AnalyzeContentService]
+  providers: [AnalyzeContentService, CrudContentService, DatePipe]
 })
 
 export class ContentPageComponent {
@@ -45,22 +37,53 @@ export class ContentPageComponent {
     { state: 'MI', status: 'Compliant', violations: [] }
   ];
 
+  @Input() contentAssetId?: string;
+  @Input() content?: string;
   contentTitle = "Sensii Vape Product Launch"; //replace as input
-  contentType = "Web Content";
+  contentType: keyof typeof ContentType = 'productDescription';
   launchDate = "03-01-2023";
   editMode = false;
-  content:any;
+  loaded:boolean = false;
+  
   paViolation = false;
   @Output() onAnalyze = new EventEmitter<{state: string; status: string; violations: { code: string; description: string; }[]}[] >;
   @Output() onInput = new EventEmitter<string>;
+  @Output() onBack = new EventEmitter<null>;
+  @Output() onSave = new EventEmitter<string>;
   stateResults: { state: string, status: string, violations: { code: string, description: string }[] }[] = [];
+  contentDetail: {title: string, contentType:string} | undefined;
 
-
-  constructor(private analyzeContentService: AnalyzeContentService) {
+  constructor(private analyzeContentService: AnalyzeContentService, private contentService:CrudContentService) {
   }
 
+  ngOnInit() {
+    if (this.contentAssetId) {
+      // Load the existing content asset with fields pre-filled
+      this.editMode = false; // Set edit mode to false
+      this.contentService.getContentAsset(this.contentAssetId).subscribe((contentAsset: ContentAsset) => {
+        this.contentTitle = contentAsset.name;
+        //this.contentType = ContentType[contentAsset.contentType];
+        //this.launchDate = contentAsset.launchDate.toString();
+        this.content = contentAsset.content;
+        this.contentDetail = {
+          title:this.contentTitle,
+          contentType: 'Placeholder'
+        };
+        this.loaded = true;
+      });
+    } else {
+      // Create a new contentAsset and start in edit mode
+      this.editMode = true; // Set edit mode to true
+      this.contentTitle = ''; // Clear the title
+      //this.contentType = 'productDescription'; // Set default content type
+      //this.launchDate = new Date().toISOString().substr(0, 10); // Set today's date as the launch date
+      this.content = ''; // Clear the content
+      this.loaded = true;
+    }
+  }
   
-  ngAfterViewInit(){
+  
+ /* ngAfterViewInit(){
     try{
       var quill = new Quill('#editor-container', {
         modules: {
@@ -81,20 +104,31 @@ export class ContentPageComponent {
       console.log('Error: ' + error);
     }
 
-  }
+  }*/
 
   handleEditMode(){
     this.editMode = !this.editMode;
   }
 
-  handleMetadataSave(event: { title: string, content_type: string, launch_date: Date }){
+  /*handleMetadataSave(event: { title: string, content_type: string, launch_date: Date }){
     this.contentTitle = event.title;
-    this.contentType = event.content_type;
+    //this.contentType = event.content_type;
     this.launchDate = event.launch_date.toString();
     this.handleEditMode();
+  }*/
+
+  handleMetadataSave(event: { title: string, content_type: string, launch_date: Date }) {
+    this.contentTitle = event.title;
+    //this.contentType = event.content_type;
+    //this.launchDate = event.launch_date.toISOString().substr(0, 10);
+    this.handleEditMode();
+  }
+  
+  handleAnalysis(event:any){
+    this.onAnalyze.emit(event);
   }
 
-  async handleInput(delta: any, oldDelta: any, source: any) {
+ /* async handleInput(delta: any, oldDelta: any, source: any) {
     try {
       const content = document.querySelector('#editor-container .ql-editor')?.textContent ?? '';
       const analysisResult = await this.analyzeContentService.analyzeContent(content);
@@ -104,18 +138,65 @@ export class ContentPageComponent {
       console.log(error);
     }
 
-  }
+  }*/
 
-  handleSaveContent(){
-    /*const content = document.querySelector('#editor-container .ql-editor')?.textContent ?? '';
-    const contentRef:contentAsset = {
-      name: 'test',
-      contentType: 'test',
-      createdDate: 'test'
-      contentVersions: contentVersion[];
-      createdBy: string;
+  /*handleSaveContent(){
+    const content = document.querySelector('#editor-container .ql-editor')?.textContent ?? undefined;
+    if(content){
+      const contentAsset: ContentAsset = {
+        id: this.contentAssetId,
+        name: this.contentTitle,
+        //contentType: ContentType[this.contentType as keyof typeof ContentType],
+        content: content,
+        createdBy: 'User'
+      }
+      try{
+        this.contentService.createContentAsset(contentAsset).then(()=>{
+          console.log('Successfully saved content');
+        }
+        )
+      }catch(error){
+        console.log(error);
+      }
     }
-    fbData.database.push(contentRef)*/
+  }*/
+
+  handleSaveContent() {
+    
+    const content = document.querySelector('#editor-container .ql-editor')?.textContent ?? undefined;
+    if (content) {
+      const contentAsset: ContentAsset = {
+        id: this.contentAssetId || '',
+        name: this.contentTitle,
+        //contentType: ContentType[this.contentType as keyof typeof ContentType],
+        content: content,
+        //launchDate: new Date(this.launchDate),
+        createdBy: 'User'
+      }
+      try {
+        if (this.contentAssetId) {
+          // Update the existing content asset
+          this.contentService.updateContentAsset(contentAsset).then(() => {
+            console.log('Successfully updated content');
+            this.onSave.emit('Successful Update');
+          });
+        } else {
+          // Create a new content asset
+          this.contentService.createContentAsset(contentAsset).then(() => {
+            console.log('Successfully saved content');
+            this.onSave.emit('Successful Insert');
+
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+  
+
+  handleBack(){
+    this.onBack.emit();
   }
 
     

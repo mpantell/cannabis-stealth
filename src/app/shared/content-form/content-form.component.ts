@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormArray, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 
 
@@ -10,11 +10,11 @@ import { FormControl, FormBuilder, Validators, FormArray, FormsModule, ReactiveF
   imports: [FormsModule, ReactiveFormsModule]
 })
 export class ContentFormComponent {
-  
+  @Input() contentAssetDetail: {title:string, contentType:string } | undefined;
   @Output() onSave = new EventEmitter<{ title: string, content_type: string, launch_date: Date }>();
 
   editMode: boolean = false;
-  title="Sample Title";
+  title='';
 
   contentDetails = this.fb.group({
     contentTitle: [''],
@@ -23,6 +23,15 @@ export class ContentFormComponent {
   });
 
   constructor(private fb : FormBuilder){}
+
+  ngOnInit(){
+    if(this.contentAssetDetail){
+      this.contentDetails.patchValue({
+        contentTitle: this.contentAssetDetail.title,
+        contentType: this.contentAssetDetail.contentType
+      });
+    }
+  }
 
   onSubmit(){
     const formValues = this.contentDetails.value;

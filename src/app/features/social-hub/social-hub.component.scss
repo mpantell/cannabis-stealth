@@ -1,0 +1,120 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #fff;
+    height: 95%;
+    border-radius: 5px;
+    padding: 1%
+  }
+  
+  .preview-section {
+    width: 45%;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-preview {
+    width: 95%;
+    border: 1px solid #dbdbdb;
+    margin-top: 32px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-image {
+    width: 75%;
+    padding-right: 16px;
+  }
+  
+  .post-image img {
+    width: 100%;
+  }
+  
+  .post-details {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .post-header img {
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .post-username {
+    font-weight: bold;
+  }
+  
+  .post-text {
+    margin-bottom: 8px;
+  }
+  
+  .post-hashtags span {
+    margin-right: 8px;
+    color: #003569;
+  }
+  
+  .post-hashtags span:last-child {
+    margin-right: 0;
+  }
+
+  .instagram-toolbar{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .analyzer {
+    max-width: 25%;
+  }
+
+  #insta-send-img{
+    rotate: -23deg;
+    margin-bottom: 7px;
+    margin-left: 3px;
+  }
+
+#fileInput::file-selector-button {
+  /* Style the new button */
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+#fileInput::file-selector-button:hover {
+  background-color: #0069d9;
+}
+
+textarea {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+    height: 100px;
+    resize: none;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+
+  

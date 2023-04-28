@@ -63,6 +63,7 @@ export class ProductsComponent implements OnChanges, OnInit {
     const product = this.productDataService.getProduct(event[0]).subscribe((product: Product) => {
       if(product){
         this.productRecord = product;
+        this.productRecord['id'] = event[0];
         console.log(this.productRecord);
         this.isEditMode = false;
         this.lv = false;
@@ -75,11 +76,12 @@ export class ProductsComponent implements OnChanges, OnInit {
   }
 
   handleCreate() {
+    this.productRecord = undefined;
     this.isEditMode = true;
     this.lv = false;
   }
 
-  handleSuccess(){
+  handleSuccess(event:string){
     this.refreshProducts().then(() => {
       this.lv = true;
       this.showSuccess();

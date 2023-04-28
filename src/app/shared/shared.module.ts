@@ -18,7 +18,9 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { FabricToolbarComponent } from './fabric-toolbar/fabric-toolbar.component';
 import { FabricWidgetMenuComponent } from './fabric-widget-menu/fabric-widget-menu.component';
 import { SvgUploadComponent } from './svg-upload/svg-upload.component';
-
+import { QuilEditorComponent } from './quil-editor/quil-editor.component';
+import { StateSelectorComponent } from './state-selector/state-selector.component';
+import { StatesService } from '../services/states.service';
 
 
 
@@ -36,7 +38,8 @@ import { SvgUploadComponent } from './svg-upload/svg-upload.component';
     ContentFormComponent,
     HttpClientModule,
     ToolbarComponent,
-    LayoutComponent
+    LayoutComponent,
+    QuilEditorComponent
   ],
   exports: [
     NavMenuComponent,
@@ -47,7 +50,8 @@ import { SvgUploadComponent } from './svg-upload/svg-upload.component';
     LayoutComponent,
     ProofreaderComponent,
     AccordionHorizontalComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    StateSelectorComponent
   ],
   declarations: [
     ProofreaderComponent,
@@ -57,7 +61,8 @@ import { SvgUploadComponent } from './svg-upload/svg-upload.component';
     ProductFormComponent,
     FabricToolbarComponent,
     FabricWidgetMenuComponent,
-    SvgUploadComponent
+    SvgUploadComponent,
+    StateSelectorComponent
   ]
 })
 export class SharedModule { }

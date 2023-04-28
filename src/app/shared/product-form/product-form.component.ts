@@ -1,8 +1,13 @@
 import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/models/product.model';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { CrudProductService } from 'src/app/services/crud-product.service';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { ContentAsset, AssetListViewHeaderKey } from 'src/models/content-asset.model';
+import { productFormHelper } from './product-form-helper';
+import { CrudContentService } from 'src/app/services/crud-content.service';
+import { ListViewBuilderService } from 'src/app/services/list-view-builder.service';
 
 
 @Component({
@@ -13,97 +18,115 @@ import { Router } from '@angular/router';
 export class ProductFormComponent implements OnInit {
   productForm: FormGroup;
   @Output() dbSuccess: EventEmitter<string> = new EventEmitter();
+  @Output() backEvent: EventEmitter<null> = new EventEmitter()
   @Input() isEditMode: boolean = false;
   @Input() productRecord: Product | undefined;
+  contentAssets$: Observable<ContentAsset[]> | undefined;
+  contentHeaders:string[] = ['id', 'Asset Name', 'Status', 'Content Type'];
+  contentData: string[][] = [];
 
-  constructor(private fb: FormBuilder, private productService: CrudProductService, private router: Router){
+  constructor(private fb: FormBuilder, private productService: CrudProductService, private router: Router, private contentService: CrudContentService, private listViewBuilder:ListViewBuilderService) {
     this.productForm = this.fb.group({
-      productName: ['',Validators.required],
-      productDescription: ['',Validators.required],
+      id: [''],
+      productName: ['', Validators.required],
+      productDescription: ['', Validators.required],
       //harvestDate: ['',Validators.required],
-      netWeight: ['',Validators.required],
-      totalCannabinoids: ['',Validators.required],
-      thcConcentration: ['',Validators.required],
-      cbdConcentration: ['',Validators.required],
-      thcaConcentration: ['',Validators.required],
-      cbdaConcentration: ['',Validators.required],
+      netWeight: ['', Validators.required],
+      totalCannabinoids: ['', Validators.required],
+      thcConcentration: ['', Validators.required],
+      cbdConcentration: ['', Validators.required],
+      thcaConcentration: ['', Validators.required],
+      cbdaConcentration: ['', Validators.required],
       //soldByName: ['',Validators.required],
       //soldByAddress: ['',Validators.required],
-      producedByName: ['',Validators.required],
-      producedByAddress: ['',Validators.required],
+      producedByName: ['', Validators.required],
+      producedByAddress: ['', Validators.required],
       //useBy: ['',Validators.required],
       //packageDate: ['',Validators.required],
-      testedBy: ['',Validators.required],
-      testingMethodologyStatement: ['',Validators.required],
-      spanishInstructions: ['',Validators.required]
+      testedBy: ['', Validators.required],
+      testingMethodologyStatement: ['', Validators.required],
+      spanishInstructions: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {
-    if(this.productRecord){
-      console.log(this.isEditMode);
-      this.productForm.patchValue({
-        productName: this.productRecord.productName,
-        productDescription: this.productRecord.productDescription,
-        //harvestDate: this.productRecord.harvestDate,
-        netWeight: this.productRecord.netWeight,
-        totalCannabinoids: this.productRecord.totalCannabinoids,
-        thcConcentration: this.productRecord.thcConcentration,
-        cbdConcentration: this.productRecord.cbdConcentration,
-        thcaConcentration: this.productRecord.thcaConcentration,
-        cbdaConcentration: this.productRecord.cbdaConcentration,
-        //soldByName: this.productRecord.soldByName,
-        //soldByAddress: this.productRecord.soldByAddress,
-        producedByName: this.productRecord.producedByName,
-        producedByAddress: this.productRecord.producedByAddress,
-        //useBy: this.productRecord.useBy,
-        //packageDate: this.productRecord.packageDate,
-        testedBy: this.productRecord.testedBy,
-        testingMethodologyStatement: this.productRecord.testingMethodologyStatement,
-        spanishInstructions: this.productRecord.spanishInstructions
+  async ngOnInit(): Promise<void> {
+    if (this.productRecord) {
+      this.productForm = await productFormHelper.fillProductForm(this.productForm, this.productRecord);
+      this.contentAssets$ = this.contentService.getContentAssets(this.productRecord.id);
+      this.contentAssets$.subscribe((contentAssets: ContentAsset[]) => {
+        console.log('CONTENT ASSET: ', contentAssets);
+        if(contentAssets){
+          this.contentData = productFormHelper.buildAssetListView(this.listViewBuilder, contentAssets)
+        }
+        this.disableForm(true);
       });
-      
     }
-  }
+  }  
 
-  onSubmit(){
-    const newProduct: Product = {
-      id: '',
+  onSubmit() {
+    const formProduct: Product = {
+      id: this.productForm.value.id ? this.productForm.value.id : '',
       productName: this.productForm.value.productName,
       productDescription: this.productForm.value.productDescription,
-      harvestDate: this.productForm.value.harvestDate,
+      //harvestDate: this.productForm.value.harvestDate,
       netWeight: this.productForm.value.netWeight,
       totalCannabinoids: this.productForm.value.totalCannabinoids,
       thcConcentration: this.productForm.value.thcConcentration,
       cbdConcentration: this.productForm.value.cbdConcentration,
-      thcaConcentration: this.productForm.value.thcaConcentration,
-      cbdaConcentration: this.productForm.value.cbdaConcentration,
-      soldByName: this.productForm.value.soldByName,
-      soldByAddress: this.productForm.value.soldByAddress,
+      //thcaConcentration: this.productForm.value.thcaConcentration,
+      //cbdaConcentration: this.productForm.value.cbdaConcentration,
+      //soldByName: this.productForm.value.soldByName,
+      //soldByAddress: this.productForm.value.soldByAddress,
       producedByName: this.productForm.value.producedByName,
       producedByAddress: this.productForm.value.producedByAddress,
-      useBy: this.productForm.value.useBy,
-      packageDate: this.productForm.value.packageDate,
+      //useBy: this.productForm.value.useBy,
+      //packageDate: this.productForm.value.packageDate,
       testedBy: this.productForm.value.testedBy,
       testingMethodologyStatement: this.productForm.value.testingMethodologyStatement,
       spanishInstructions: this.productForm.value.spanishInstructions
     };
 
-    try{
-      this.productService.createProduct(newProduct).then((result:any)=>{
-        console.log(result);
-        this.dbSuccess.emit('Success');
-      })
-    }catch(error){
+    try {
+      if (this.productForm.value.id === '') {
+        this.productService.createProduct(formProduct).then((result: any) => {
+          console.log(result);
+          this.dbSuccess.emit('Successful Insert');
+        })
+      } else {
+        this.productService.updateProduct(formProduct).then((result: any) => {
+          console.log(result);
+          this.dbSuccess.emit('Successful Update')
+        })
+      }
+    } catch (error) {
 
     }
   }
-  
-  handleNavigation(event:any){
-    if(event.target.id === 'newPackaging'){
-      this.router.navigate(['/brandHub']);
-    }else{
-      this.router.navigate(['/contentHub']);
+
+  handleNavigation(event: any) {
+    const navExtras: NavigationExtras = {
+      queryParams: {
+        productId: this.productRecord?.id
+      }
+      
     }
+    if (event.target.id === 'newPackaging') {
+      this.router.navigate(['/brandHub'], navExtras);
+    } else {
+      this.router.navigate(['/contentHub'], navExtras);
+    }
+  }
+
+  disableForm(disabled: boolean) {
+    setTimeout(() => disabled ? this.productForm.disable() : this.productForm.enable())
+  }
+
+  setEditMode() {
+    setTimeout(() => this.productForm.enable());
+    this.isEditMode = true;
+  }
+
+  handleBack() {
+    this.backEvent.emit();
   }
 }

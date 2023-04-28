@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="main" *ngIf="lv; else elseBlock">
+        <div>
+            <h1>Forbidden Keywords</h1>
+            <div class="listContainer">
+                <app-list-view [deleteAccess]="deleteAccess" [headers]="headers" [data]="tableData"
+                    (deleteEvent)="handleDelete($event)" (openEvent)="handleOpen($event)"></app-list-view>
+                <button id="create" (click)="handleCreate()">Create New</button>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <app-forbidden-keyword-form (saveForbiddenKeyword)="saveForbiddenKeyword($event)" [forbiddenKeyword]="selectedKeyword" (onBack)="handleBack()"></app-forbidden-keyword-form>
+    </ng-template>
+</div>

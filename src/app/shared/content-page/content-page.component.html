@@ -1,30 +1,33 @@
 <html>
+
 <head>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <style>
         #editor-container {
-          height: 375px;
+            height: 375px;
         }
-        </style>
+    </style>
 </head>
 
 <body>
     <div *ngIf="editMode">
-        <app-content-form (onSave)="handleMetadataSave($event)"></app-content-form>
+        <app-content-form (onSave)="handleMetadataSave($event)" [contentAssetDetail]="contentDetail"></app-content-form>
     </div>
-    
+
     <div *ngIf="!editMode">
         <div id="content-title">
             <div class="title" *ngIf="!editMode">
-                <h1>{{contentTitle}}</h1> 
+                <h1>{{contentTitle}}</h1>
                 <button class="pencilbutton" (click)="handleEditMode()">
-                    <svg class="pencil" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                    <svg class="pencil" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                     </svg>
-                </button> 
-                
+                </button>
+
             </div>
             <div style="margin-top: -1.2vw;">
                 <p>Content Type: <span style="font-weight: lighter">{{contentType}}</span></p>
@@ -32,13 +35,14 @@
             </div>
         </div>
     </div>
-    <div id="editor-container">
-        
+    <div *ngIf="loaded" id="editor-container">
+        <app-quil-editor [content]="content" (onAnalyze)="handleAnalysis($event)"></app-quil-editor>
     </div>
-    <button style="float: right;">Save</button>
-    
+    <div class="button-group">
+        <button type="submit" (click)="handleBack()" [disabled]="editMode">Back</button>
+        <button type="submit" style="float: right;" (click)="handleSaveContent()" [disabled]="editMode">Save</button>
+    </div>
+
 </body>
+
 </html>
-
-
-  

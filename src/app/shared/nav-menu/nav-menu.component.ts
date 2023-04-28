@@ -25,6 +25,8 @@ export class NavMenuComponent {
       this.router.navigate(['/campaignHub']);
     } else if (event.target.id.includes("product")){
       this.router.navigate(['/products']);
+    } else if (event.target.id.includes("social")){
+      this.router.navigate(['socialHub']);
     }
   }
 

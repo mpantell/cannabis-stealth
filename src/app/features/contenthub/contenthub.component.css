@@ -7,14 +7,19 @@
 
 .main {
     background-color: #EEEEEE;
-    min-width: 70%;
+    width: 100%;
     height:100%;
     border-radius: 5px;
     overflow: auto;
+    display: flex;
 }
 .listContainer {
-    padding: 5px
-    
+    padding: 10px;
+    width: 100%
+}
+
+#app-content-page{
+    width: 100%;
 }
 
 .banner {
@@ -55,6 +60,7 @@ h1 {
     color: white;
     max-width: 29%;
     min-width: 340px;
+    margin-top: 20px;
 }
 
 
@@ -91,9 +97,23 @@ ul {
 }
 
 #create {
-    float: right;
-    margin-right: 79px;
-}
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3F51B5;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #create:hover {
+    background-color: #2c3e50;;
+  }
 
 .proofreader-container {
     margin-right: 10px;
