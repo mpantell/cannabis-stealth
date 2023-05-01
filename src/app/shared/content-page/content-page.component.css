@@ -81,3 +81,7 @@ button:disabled {
 button:disabled:hover{
     background-color: #c4c4c4;
 }
+
+.hidden {
+    display: none;
+}

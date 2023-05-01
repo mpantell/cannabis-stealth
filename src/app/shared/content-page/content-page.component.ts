@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, ViewChild } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
@@ -11,20 +11,21 @@ import { environment } from 'src/environments/environment.dev';
 import { ContentAsset, ContentType } from 'src/models/content-asset.model';
 import { CrudContentService } from 'src/app/services/crud-content.service';
 import { QuilEditorComponent } from '../quil-editor/quil-editor.component';
+import { SharedModule } from '../shared.module';
 
 
 @Component({
-  standalone: true,
+  
   selector: 'app-content-page',
   templateUrl: './content-page.component.html',
   styleUrls: ['./content-page.component.css'],
-  imports: [
+  /*imports: [
     CommonModule,
     FormsModule,
     QuillModule,
-    ContentFormComponent,
+    SharedModule,
     QuilEditorComponent
-  ],
+  ],*/
   providers: [AnalyzeContentService, CrudContentService, DatePipe]
 })
 
@@ -52,6 +53,8 @@ export class ContentPageComponent {
   @Output() onSave = new EventEmitter<string>;
   stateResults: { state: string, status: string, violations: { code: string, description: string }[] }[] = [];
   contentDetail: {title: string, contentType:string} | undefined;
+  @ViewChild('#editor-container') editorContainer: HTMLElement | undefined;
+
 
   constructor(private analyzeContentService: AnalyzeContentService, private contentService:CrudContentService) {
   }
@@ -197,6 +200,10 @@ export class ContentPageComponent {
 
   handleBack(){
     this.onBack.emit();
+  }
+
+  handleInput(event:any){
+    this.onInput.emit(event);
   }
 
     

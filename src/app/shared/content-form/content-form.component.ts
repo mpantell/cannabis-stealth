@@ -1,31 +1,45 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormArray, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
+import { StateSelectorComponent } from '../state-selector/state-selector.component';
+import { SharedModule } from '../shared.module';
+import { FeaturesModule } from 'src/app/features/features.module';
+import { ContentType } from 'src/models/content-asset.model';
 
 
 @Component({
-  standalone: true,
   selector: 'app-content-form',
   templateUrl: './content-form.component.html',
-  styleUrls: ['./content-form.component.css'],
-  imports: [FormsModule, ReactiveFormsModule]
+  styleUrls: ['./content-form.component.css']
+  //imports: [FormsModule, ReactiveFormsModule, SharedModule, FeaturesModule]
 })
 export class ContentFormComponent {
-  @Input() contentAssetDetail: {title:string, contentType:string } | undefined;
+  @Input() contentAssetDetail: { title: string, contentType: string } | undefined;
   @Output() onSave = new EventEmitter<{ title: string, content_type: string, launch_date: Date }>();
+  selectedStates = [];
+  contentTypeOptions: {key:string, type:string}[] = [];
+
 
   editMode: boolean = false;
-  title='';
+  title = '';
 
   contentDetails = this.fb.group({
     contentTitle: [''],
-    contentLaunchDate: [ ],
-    contentType: ['']
+    contentLaunchDate: [],
+    contentType: [''],
+    states: []
   });
 
-  constructor(private fb : FormBuilder){}
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit(){
-    if(this.contentAssetDetail){
+  ngOnInit() {
+    for (const key of Object.keys(ContentType)) {
+      this.contentTypeOptions.push({
+        key: key,
+        type: ContentType[key as keyof typeof ContentType]
+      });
+    }
+
+    if (this.contentAssetDetail) {
       this.contentDetails.patchValue({
         contentTitle: this.contentAssetDetail.title,
         contentType: this.contentAssetDetail.contentType
@@ -33,7 +47,7 @@ export class ContentFormComponent {
     }
   }
 
-  onSubmit(){
+  onSubmit() {
     const formValues = this.contentDetails.value;
     const valuesWithDefaults = {
       title: formValues.contentTitle || '',

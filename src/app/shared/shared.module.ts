@@ -30,16 +30,15 @@ import { StatesService } from '../services/states.service';
     CommonModule,
     ListViewComponent,
     FormsModule,
-    ContentPageComponent,
+    
     QuillModule.forRoot(),
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    ContentFormComponent,
     HttpClientModule,
     ToolbarComponent,
     LayoutComponent,
-    QuilEditorComponent
+    
   ],
   exports: [
     NavMenuComponent,
@@ -51,6 +50,7 @@ import { StatesService } from '../services/states.service';
     ProofreaderComponent,
     AccordionHorizontalComponent,
     ProductFormComponent,
+    QuilEditorComponent,
     StateSelectorComponent
   ],
   declarations: [
@@ -62,7 +62,10 @@ import { StatesService } from '../services/states.service';
     FabricToolbarComponent,
     FabricWidgetMenuComponent,
     SvgUploadComponent,
-    StateSelectorComponent
+    StateSelectorComponent,
+    ContentFormComponent,
+    QuilEditorComponent,
+    ContentPageComponent,
   ]
 })
 export class SharedModule { }

@@ -4,11 +4,10 @@ import Quill from 'quill';
 import { AnalyzeContentService } from 'src/app/services/analyze-content.service';
 
 @Component({
-  standalone: true,
   selector: 'app-quil-editor',
   templateUrl: './quil-editor.component.html',
   styleUrls: ['./quil-editor.component.scss'],
-  imports: [QuillModule]
+  
 })
 export class QuilEditorComponent implements AfterViewInit{
 

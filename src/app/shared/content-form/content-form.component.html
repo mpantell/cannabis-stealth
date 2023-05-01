@@ -1,12 +1,25 @@
 <form [formGroup]="contentDetails" (ngSubmit)="onSubmit()">
     <label for="title">Title</label> &nbsp;
-    <input id="title" type="text" formControlName="contentTitle" required placeholder="Enter a title for your content asset" value={{title}} [disabled]="!editMode"><br><br>
+    <input id="title" type="text" formControlName="contentTitle" required
+        placeholder="Enter a title for your content asset" value={{title}} [disabled]="!editMode"><br>
 
-    <label for="content-type">Content Type</label>&nbsp;
-    <input id="content-type" type="Text" formControlName="contentType" required> &nbsp; &nbsp;
+    <div class="section-container">
+        <div class="section-div">
+            <label for="content-type">Content Type</label>
+            <select id="content-type" formControlName="contentType" required>
+                <option *ngFor="let option of contentTypeOptions" [value]="option.key">{{ option.type }}</option>
+            </select>
+        </div>
 
-    <label for="launch-date">Launch Date</label>&nbsp;
-    <input id="launch-date" type="date" formControlName="contentLaunchDate" required> <br>
+        <div class="section-div">
+            <label for="launch-date">Launch Date</label>
+            <input id="launch-date" type="date" formControlName="contentLaunchDate" required>
+        </div>
+    </div>
+
+
+
+    <app-state-selector #stateSelector [preselectedStates]="selectedStates"></app-state-selector>
 
     <button type="submit">Save</button> <br> <br>
 </form>

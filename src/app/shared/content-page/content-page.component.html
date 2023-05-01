@@ -36,10 +36,10 @@
         </div>
     </div>
     <div *ngIf="loaded" id="editor-container">
-        <app-quil-editor [content]="content" (onAnalyze)="handleAnalysis($event)"></app-quil-editor>
+        <app-quil-editor [content]="content" (onAnalyze)="handleAnalysis($event)" (onInput)="handleInput($event)"></app-quil-editor>
     </div>
     <div class="button-group">
-        <button type="submit" (click)="handleBack()" [disabled]="editMode">Back</button>
+        <button type="submit" (click)="handleBack()">Back</button>
         <button type="submit" style="float: right;" (click)="handleSaveContent()" [disabled]="editMode">Save</button>
     </div>
 

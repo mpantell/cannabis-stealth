@@ -14,12 +14,13 @@ export class ProofreaderComponent {
   @Input() states: string[] = ["Illinois"];
   @Input() stateResults: stateResult[] = [];
   @Input() contentEditorActive: boolean = false;
-  @Input() content: string = '';
+  @Input() content: string | undefined;
   hoveredIndex: any = null;
 
-  constructor(private gpt4:Gpt4AnalyzeContentService, private toastr:ToastrService){}
 
-  setStateResults(event: {state: string; status: string; violations: { code: string; description: string; }[]}[]){
+  constructor(private gpt4: Gpt4AnalyzeContentService, private toastr: ToastrService) { }
+
+  setStateResults(event: { state: string; status: string; violations: { code: string; description: string; }[] }[]) {
     this.stateResults = event;
     this.contentEditorActive = true;
   }
@@ -27,36 +28,46 @@ export class ProofreaderComponent {
   setHoverIndex(i: any, stateResult: any) {
 
     this.hoveredIndex = i && stateResult.status === 'Violation' ? i : null;
-   // console.log('HOVER INDEX: ' + i);
+    // console.log('HOVER INDEX: ' + i);
   }
 
   async analyzeContent(event: any) {
+    const button = document.querySelector('#analyze-content');
+    const spinner = document.querySelector('.spinner') as HTMLElement;
+    if (spinner) {
+      spinner.style.display = 'block';
+      let content = this.content;
 
-    //let contentElement = document.getElementById('content-page');
-    //let content = contentElement?.innerText;
-    let content = this.content;
-    
-    if (content) {
-      const prompts = this.gpt4.buildPrompts(['IL'], content);
-      //let results = this.gpt4.executePrompts(prompts);
-      //console.log(results);
+      if (content) {
+        this.gptResults = [];
+        const prompts = this.gpt4.buildPrompts(['IL'], content);
+        //let results = this.gpt4.executePrompts(prompts);
+        //console.log(results);
 
-      this.gpt4.executePromptsFrontend(prompts).then(responses => {
-        console.log(responses[0]);
-        this.gptResults[0] = responses[0];
-      }).catch(err => {
-        console.log(err);
-        this.showError(err.errorMessage.toString());
-      });
+        this.gpt4.executePromptsFrontend(prompts).then(responses => {
+          console.log(responses[0]);
+          this.gptResults[0] = responses[0];
+        }).catch(err => {
+          console.log(err);
+          this.showError(err.errorMessage.toString());
+        }).finally(() => {
+          spinner.style.display = 'none';
+        });
+      }
     }
   }
 
-  showError(errorMessage:string) {
-    this.toastr.error(errorMessage, 'Error', 
-    {
-      timeOut:5000,
-      positionClass: 'toast-top-right',
-    });
+  //let contentElement = document.getElementById('content-page');
+  //let content = contentElement?.innerText;
+
+
+
+  showError(errorMessage: string) {
+    this.toastr.error(errorMessage, 'Error',
+      {
+        timeOut: 5000,
+        positionClass: 'toast-top-right',
+      });
   }
 
 }

@@ -26,7 +26,9 @@ export class NavMenuComponent {
     } else if (event.target.id.includes("product")){
       this.router.navigate(['/products']);
     } else if (event.target.id.includes("social")){
-      this.router.navigate(['socialHub']);
+      this.router.navigate(['/socialHub']);
+    } else if (event.target.id.includes("settings")){
+      this.router.navigate(['/forbiddenKeywords'])
     }
   }
 
