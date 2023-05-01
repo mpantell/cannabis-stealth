@@ -3,7 +3,7 @@ export interface ForbiddenKeyword {
   keyword: string;
   category: string;
   states: string[];
-  provisions: string[];
+  provisions?: string[];
 }
 
 export class ForbiddenKeywordHeaderKey {

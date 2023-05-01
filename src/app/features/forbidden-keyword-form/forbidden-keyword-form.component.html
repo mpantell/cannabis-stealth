@@ -15,6 +15,8 @@
     </div>
     <div class="form-group">
       <app-state-selector #stateSelector [preselectedStates]="selectedStates"></app-state-selector>
+      <div *ngIf="forbiddenKeywordForm.get('states')?.invalid && forbiddenKeywordForm.get('states')?.touched"
+          class="error-message">At least 1 state is required.</div>
     </div>
     <div class="form-group">
       <label for="provisions">Provisions:</label>
@@ -23,7 +25,7 @@
         class="error-message">Provisions are required.</div>
     </div>
     <div class="form-group">
-      <button type="submit" class="primary-button" [disabled]="forbiddenKeywordForm.invalid" (click)="handleSave()">Save</button>
+      <button type="submit" class="primary-button"  (click)="handleSave()">Save</button>
       <button type="button" class="secondary-button" (click)="handleBack()">Back</button>
     </div>
   </form>

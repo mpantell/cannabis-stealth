@@ -23,8 +23,8 @@ export class ForbiddenKeywordFormComponent implements OnInit {
     id: new FormControl(''),
     keyword: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
-    states: new FormControl([]),
-    provisions: new FormControl('', Validators.required)
+    states: new FormControl([], Validators.required),
+    provisions: new FormControl('')
   });
   constructor(private formBuilder: FormBuilder) { }
 
@@ -50,6 +50,8 @@ export class ForbiddenKeywordFormComponent implements OnInit {
       }
       this.saveForbiddenKeyword.emit({form: this.forbiddenKeywordForm.value, isUpdate: this.isUpdate});
       this.forbiddenKeywordForm.reset();
+    }else {
+      this.forbiddenKeywordForm.markAllAsTouched();
     }
   }
 

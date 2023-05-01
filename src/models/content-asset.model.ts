@@ -14,7 +14,6 @@ export enum ContentType{
     pressRelease = 'Press Release',
     productBrief = 'Product Brief',
     productDescription = 'Product Description'
-
 }
 
 

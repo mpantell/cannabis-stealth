@@ -23,11 +23,12 @@ export class ContenthubComponent implements OnInit {
   hoveredIndex: any = null;
   gptResults: string[] = [];
   lv = true;
-  content: string = '';
+  content: string | undefined;
   productId: string = '';
   contentAsset: ContentAsset | undefined;
   deleteAccess = true;
   contentAssetId?: string;
+
 
   tableData: string[][] = [
     /* ["Sensii Vape Product Launch", "Press Release", "Matthew Pantell", "2023-02-13", "Draft"],
@@ -47,19 +48,22 @@ export class ContenthubComponent implements OnInit {
     private contentService: CrudContentService, private listViewBuilder: ListViewBuilderService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    const routerState = this.router.routerState.snapshot;
-    const productId = routerState.root.firstChild?.queryParams['productId'];
-    const contentId = routerState.root.firstChild?.queryParams['assetId'];
-    if (productId && productId !== '') {
-      this.lv = false;
-      this.productId = productId;
-    }
-    if (contentId && contentId != '') {
-      this.contentService.getContentAsset(contentId).subscribe(asset => {
-        this.contentAsset = asset;
-      });
-    }
-    this.populateTableData();
+    this.populateTableData().then(()=>{
+      const routerState = this.router.routerState.snapshot;
+      const productId = routerState.root.firstChild?.queryParams['productId'];
+      const contentId = routerState.root.firstChild?.queryParams['assetId'];
+      if (productId && productId !== '') {
+        this.lv = false;
+        this.productId = productId;
+      }
+      if (contentId && contentId != '') {
+        this.contentService.getContentAsset(contentId).subscribe(asset => {
+          this.contentAsset = asset;
+          this.content = asset.content;
+        });
+      }
+    });
+    
   }
 
   /*getStateStatus(state:string){
@@ -156,6 +160,7 @@ export class ContenthubComponent implements OnInit {
         this.contentAsset = contentAsset;
         this.contentAsset['id'] = event[0];
         this.contentAssetId = event[0];
+        this.content = contentAsset.content;
         console.log('CONTENT ASSET RECORD: ' + this.contentAsset);
         this.lv = false;
       } else {
